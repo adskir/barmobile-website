@@ -4,14 +4,17 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Bar Mobile — Cocktail bar per eventi a Bari e in Puglia</title>
-  <meta name="description" content="Mobile cocktail bar a Bari e in tutta la Puglia. Spritz, cocktail classici, shot e Flair Show per matrimoni, ville private, compleanni, pool party ed eventi aziendali.">
+  <meta name="description" content="Mobile cocktail bar a Bari e in tutta la Puglia. Spritz, punch, cocktail classici, shot e Flair Show per matrimoni, ville private, compleanni, pool party ed eventi aziendali.">
   <link rel="canonical" href="https://barmobile.it/">
   <meta name="theme-color" content="#120d0a">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://barmobile.it/">
   <meta property="og:title" content="Bar Mobile — Il bar che viene alla tua festa">
+  <meta property="og:image" content="https://barmobile.it/img/hero-spritz.webp">
   <meta property="og:description" content="Spritz, cocktail e Flair Show direttamente nella tua location. Bari e tutta la Puglia.">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23120d0a'/%3E%3Cpath d='M8 9h16l-8 10z' fill='%23f26a21'/%3E%3Cpath d='M16 19v6M11 25h10' stroke='%23f6efe3' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="preload" as="image" href="/img/hero-spritz.webp" media="(min-width:701px)">
+  <link rel="preload" as="image" href="/img/hero-spritz-m.webp" media="(max-width:700px)">
   <link rel="preload" href="/fonts/playfair-display-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/dm-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
   <style>
@@ -70,13 +73,16 @@
     .btn-cream:hover{background:#fff}
 
     /* HERO */
-    .hero{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:center;overflow:hidden;background:radial-gradient(120% 80% at 70% 40%,#3a2516 0%,var(--night) 62%)}
+    .hero{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:flex-end;overflow:hidden;background:var(--night)}
+    .hero-bg{position:absolute;inset:0;z-index:0}
+    .hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 60%}
+    .hero:after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(18,13,10,.92) 0%,rgba(18,13,10,.7) 38%,rgba(18,13,10,.15) 70%,rgba(18,13,10,.05) 100%),linear-gradient(0deg,rgba(18,13,10,.95) 0%,rgba(18,13,10,0) 40%)}
     .lights{position:absolute;left:0;right:0;top:64px;height:200px;pointer-events:none;z-index:1}
     .lights .bulb{animation:flicker 4s ease-in-out infinite}
     .lights .bulb:nth-child(3n){animation-delay:1.3s}
     .lights .bulb:nth-child(3n+1){animation-delay:2.6s}
     @keyframes flicker{0%,100%{opacity:1}45%{opacity:.75}50%{opacity:.95}}
-    .hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;padding:150px 0 90px}
+    .hero-grid{position:relative;z-index:2;max-width:640px;padding:160px 0 90px;margin-left:max(20px,calc((100% - 1200px)/2))}
     .eyebrow{font-size:12px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--amber);margin-bottom:22px}
     h1{font-family:var(--serif);font-size:clamp(52px,7.4vw,104px);line-height:.95;letter-spacing:-.03em}
     h1 em,h2 em{font-style:italic;font-weight:600;color:var(--aperol2)}
@@ -124,7 +130,7 @@
     .tab:hover{color:var(--cream);border-color:rgba(246,239,227,.35)}
     .tab[aria-selected="true"]{background:var(--cream);color:var(--ink);border-color:var(--cream)}
     .drinks{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:34px}
-    .drink{perspective:1400px;height:470px}
+    .drink{perspective:1400px;height:500px}
     .drink-inner{position:relative;width:100%;height:100%;transition:transform .7s cubic-bezier(.2,.7,.2,1);transform-style:preserve-3d}
     .drink.flipped .drink-inner{transform:rotateY(180deg)}
     .face{position:absolute;inset:0;border-radius:var(--r-lg);backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;border:1px solid var(--line-dark);display:flex;flex-direction:column}
@@ -139,7 +145,7 @@
     .drink-tag{font-size:13.5px;color:var(--muted-dark);margin:0 0 14px;min-height:42px}
     .flip-btn{display:inline-flex;align-items:center;gap:8px;background:transparent;border:0;color:var(--amber);font:700 13px var(--sans);letter-spacing:.06em;text-transform:uppercase;cursor:pointer;padding:0}
     .flip-btn:hover{color:#fff}
-    .back{transform:rotateY(180deg);background:var(--cream);color:var(--ink);padding:26px 24px}
+    .back{transform:rotateY(180deg);background:var(--cream);color:var(--ink);padding:24px 22px;overflow-y:auto;scrollbar-width:thin}
     .back .drink-name{font-size:24px;margin-top:4px}
     .back h4{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--aperol);margin:16px 0 8px}
     .ingr{list-style:none;margin:0;padding:0;font-size:14px}
@@ -150,6 +156,18 @@
     .chip{font-size:11.5px;font-weight:600;padding:5px 10px;border-radius:999px;background:var(--sand)}
     .back .flip-btn{color:var(--aperol);margin-top:14px}
     .menu-note{margin-top:36px;color:var(--muted-dark);font-size:14px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+
+    /* POSTERS */
+    .posters{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:50px}
+    .poster{position:relative;border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--line-dark);background:#000;cursor:zoom-in;padding:0;transition:transform .35s,box-shadow .35s}
+    .poster:hover{transform:translateY(-6px);box-shadow:0 30px 60px rgba(0,0,0,.5),0 0 0 1px rgba(233,194,122,.35)}
+    .poster img{width:100%;height:auto;display:block;aspect-ratio:2/3;object-fit:cover}
+    .poster span{position:absolute;left:14px;bottom:14px;background:rgba(18,13,10,.75);backdrop-filter:blur(6px);color:var(--cream);font:700 12px var(--sans);letter-spacing:.12em;text-transform:uppercase;padding:8px 12px;border-radius:999px}
+    .lightbox{position:fixed;inset:0;z-index:100;background:rgba(8,6,5,.94);display:none;align-items:center;justify-content:center;padding:20px;cursor:zoom-out}
+    .lightbox.open{display:flex}
+    .lightbox img{max-height:94vh;max-width:94vw;width:auto;border-radius:14px;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+    .lightbox button{position:absolute;top:16px;right:16px;width:44px;height:44px;border-radius:50%;border:1px solid var(--line-dark);background:rgba(255,255,255,.06);color:var(--cream);font-size:22px;cursor:pointer}
+    .recipes-head{margin-top:90px}
 
     /* SIGNATURE */
     .signature{display:grid;grid-template-columns:.9fr 1.1fr;gap:60px;align-items:center;margin-top:80px;padding:50px;border-radius:32px;background:linear-gradient(135deg,#3a1d0e 0%,#1b1410 60%);border:1px solid var(--line-dark);position:relative;overflow:hidden}
@@ -254,11 +272,13 @@
     }
     @media(max-width:900px){
       .nav-links{display:none}
-      .hero-grid{grid-template-columns:1fr;padding:130px 0 70px;gap:20px}
-      .hero-glasses{height:360px;order:-1;margin-bottom:-10px}
+      .hero-grid{padding:120px 0 60px;margin:0 20px}
+      .hero:after{background:linear-gradient(0deg,rgba(18,13,10,.97) 0%,rgba(18,13,10,.85) 45%,rgba(18,13,10,.2) 75%,rgba(18,13,10,.35) 100%)}
+      .hero-bg img{object-position:30% center}
       .intro,.flair,.puglia-grid,.contact-grid,.signature{grid-template-columns:1fr;gap:40px}
       .features{grid-template-columns:1fr 1fr}
       .drinks{grid-template-columns:1fr 1fr}
+      .posters{grid-template-columns:1fr 1fr 1fr;gap:10px}
       .prices{grid-template-columns:1fr}
       .price-card.featured{transform:none}
       .steps{grid-template-columns:1fr 1fr}
@@ -270,10 +290,12 @@
       .section{padding:84px 0}
       .nav-cta{padding:9px 14px;font-size:12px}
       .logo span{display:none}
-      .hero-glasses{height:280px}
+      .hero-grid{margin:0 16px}
       .features,.steps,.form-row{grid-template-columns:1fr}
       .drinks{grid-template-columns:1fr}
-      .drink{height:450px}
+      .posters{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;margin-left:-16px;margin-right:-16px;padding:0 16px 8px;scrollbar-width:none}
+      .poster{flex:0 0 78%;scroll-snap-align:center}
+      .drink{height:500px}
       .tabs{flex-wrap:nowrap;overflow-x:auto;margin-left:-16px;margin-right:-16px;padding:0 16px 6px;scrollbar-width:none}
       .tabs::-webkit-scrollbar{display:none}
       .tab{flex:none}
@@ -302,17 +324,9 @@
 
 <main id="top">
   <section class="hero">
-    <svg class="lights" viewBox="0 0 1440 200" preserveAspectRatio="xMidYMin slice" aria-hidden="true">
-      <defs>
-        <radialGradient id="bulb" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stop-color="#fff4cf"/><stop offset="40%" stop-color="#ffc46b" stop-opacity=".9"/><stop offset="100%" stop-color="#ffc46b" stop-opacity="0"/>
-        </radialGradient>
-      </defs>
-      <path d="M-20,30 Q180,150 380,40 T780,40 T1180,40 T1580,40" stroke="#5b4128" stroke-width="2" fill="none"/>
-      <g id="bulbs"></g>
-    </svg>
+    <picture class="hero-bg"><source media="(max-width:700px)" srcset="/img/hero-spritz-m.webp"><img src="/img/hero-spritz.webp" alt="Sei spritz colorati sul bancone di un bar all'aperto in Puglia, di sera" width="1536" height="1024" fetchpriority="high"></picture>
 
-    <div class="container hero-grid">
+    <div class="hero-grid">
       <div>
         <div class="eyebrow">Mobile cocktail bar · Bari &amp; Puglia</div>
         <h1>Il bar che viene <em>alla tua festa.</em></h1>
@@ -323,7 +337,6 @@
         </div>
         <div class="hero-meta"><span>Matrimoni</span><span>Ville private</span><span>Compleanni</span><span>Pool party</span><span>Aziende</span></div>
       </div>
-      <div class="hero-glasses" id="heroGlasses" aria-hidden="true"></div>
     </div>
   </section>
 
@@ -369,6 +382,20 @@
       <div class="head-row reveal">
         <div>
           <div class="kicker">La drink list</div>
+          <h2>Tre bar, <em>un'unica festa.</em></h2>
+        </div>
+        <p class="lead">Spritz bar per l'aperitivo, punch bar per i grandi numeri, shot bar per accendere la pista. Scegli uno, due o tutti e tre.</p>
+      </div>
+
+      <div class="posters reveal">
+        <button class="poster" type="button" data-full="/img/menu-spritz.webp"><img src="/img/menu-spritz.webp" alt="Menu Spritz Bar: Classic Spritz, Hugo, Limoncello, Bitter, Berry e Cucumber Spritz" loading="lazy" width="900" height="1350"></button>
+        <button class="poster" type="button" data-full="/img/menu-punch.webp"><img src="/img/menu-punch.webp" alt="Menu Punch Bar per 20–50 ospiti: Tropical, Anguria e Lime, Sangria Bianca, Sunset Punch" loading="lazy" width="843" height="1264"></button>
+        <button class="poster" type="button" data-full="/img/menu-shot.webp"><img src="/img/menu-shot.webp" alt="Menu Shot Bar: Blue Kamikaze, B-52, Lemon Drop, Sunrise, Espresso Shot, Watermelon" loading="lazy" width="843" height="1264"></button>
+      </div>
+
+      <div class="head-row reveal recipes-head">
+        <div>
+          <div class="kicker">Le ricette</div>
           <h2>Scegli il tuo <em>drink.</em></h2>
         </div>
         <p class="lead">Tocca una card per vedere la ricetta: dosi, bicchiere e preparazione. Al tuo evento componiamo il menu insieme.</p>
@@ -377,6 +404,7 @@
       <div class="tabs" role="tablist" aria-label="Categorie drink" id="tabs">
         <button class="tab" role="tab" aria-selected="true" data-cat="spritz">Spritz</button>
         <button class="tab" role="tab" aria-selected="false" data-cat="classici">Classici</button>
+        <button class="tab" role="tab" aria-selected="false" data-cat="punch">Punch</button>
         <button class="tab" role="tab" aria-selected="false" data-cat="shot">Shot</button>
         <button class="tab" role="tab" aria-selected="false" data-cat="analcolici">Analcolici</button>
       </div>
@@ -427,7 +455,7 @@
           <div class="price-tag">03 · Experience</div><div class="price-name">Show</div>
           <div class="price">€790 <small>da</small></div>
           <div class="price-desc">Fino a 80 ospiti · fino a 4 ore</div>
-          <ul class="checklist"><li>Cocktail &amp; Spritz Bar</li><li>4 cocktail + 1 signature</li><li>Shot bar a fine serata</li><li>Carretto premium con luci</li><li>Flair Show</li></ul>
+          <ul class="checklist"><li>Cocktail &amp; Spritz Bar</li><li>4 cocktail + 1 signature</li><li>Shot bar o Punch bar</li><li>Carretto premium con luci</li><li>Flair Show</li></ul>
           <a class="btn" href="#contatti" data-pack="Show — da €790">Voglio lo show</a>
         </article>
       </div>
@@ -560,6 +588,8 @@
   </section>
 </main>
 
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Menu"><button type="button" aria-label="Chiudi">×</button><img alt=""></div>
+
 <footer>
   <div class="container">
     <div class="footer-inner">
@@ -587,6 +617,7 @@ const GLASSES = {
   martini: {vb:"0 0 160 240", body:"M24,46 L80,118 L136,46 Z", liquid:[58,118], stem:[80,118,80,212], foot:[80,214,30], rim:[24,136,46]},
   highball:{vb:"0 0 160 240", body:"M46,42 L114,42 L110,222 Q110,228 104,228 L56,228 Q50,228 50,222 Z", liquid:[64,222], rim:[46,114,42]},
   rocks:   {vb:"0 70 160 170", body:"M36,116 L124,116 L119,222 Q119,228 113,228 L47,228 Q41,228 41,222 Z", liquid:[134,222], rim:[36,124,116]},
+  jar:     {vb:"0 0 160 240", body:"M50,38 L110,38 L112,54 Q140,70 140,130 Q140,206 110,214 L50,214 Q20,206 20,130 Q20,70 48,54 Z", liquid:[66,214], rim:[50,110,38], tap:true},
   shot:    {vb:"15 80 130 160", body:"M50,120 L110,120 L104,226 L56,226 Z", liquid:[134,208], rim:[50,110,120], thick:true}
 };
 let gid = 0;
@@ -596,7 +627,7 @@ function glassSVG(d){
   const stops = (d.stops || [[0,d.c1],[1,d.c2]]).map(s => `<stop offset="${s[0]}" stop-color="${s[1]}"/>`).join("");
   let ice = "";
   if (d.ice){
-    const xs = d.glass==="rocks" ? [[58,150,0],[90,160,14]] : d.glass==="highball" ? [[56,78,-8],[82,96,10],[60,128,6],[84,160,-6]] : [[58,58,-10],[86,66,12],[70,84,4]];
+    const xs = d.glass==="jar" ? [[44,76,-8],[72,70,12],[98,82,4],[54,110,6],[88,120,-6]] : d.glass==="rocks" ? [[58,150,0],[90,160,14]] : d.glass==="highball" ? [[56,78,-8],[82,96,10],[60,128,6],[84,160,-6]] : [[58,58,-10],[86,66,12],[70,84,4]];
     ice = xs.map(([x,y,r]) => `<rect x="${x}" y="${y}" width="24" height="24" rx="5" transform="rotate(${r} ${x+12} ${y+12})" fill="rgba(255,255,255,.22)" stroke="rgba(255,255,255,.45)" stroke-width="1"/>`).join("");
   }
   let bubbles = "";
@@ -607,6 +638,7 @@ function glassSVG(d){
     }
   }
   const stem = g.stem ? `<line x1="${g.stem[0]}" y1="${g.stem[1]}" x2="${g.stem[2]}" y2="${g.stem[3]}" stroke="rgba(255,255,255,.55)" stroke-width="4" stroke-linecap="round"/><ellipse cx="${g.foot[0]}" cy="${g.foot[1]}" rx="${g.foot[2]}" ry="6" fill="rgba(255,255,255,.12)" stroke="rgba(255,255,255,.55)" stroke-width="2"/>` : "";
+  const tap = g.tap ? `<rect x="46" y="28" width="68" height="12" rx="4" fill="rgba(255,255,255,.25)" stroke="rgba(255,255,255,.6)" stroke-width="1.5"/><path d="M74,186 h16 v8 h-5 v10 h-6 v-10 h-5z" fill="#cfd3d6" stroke="#8e959b" stroke-width="1"/>` : "";
   const thick = g.thick ? `<rect x="57" y="208" width="46" height="18" fill="rgba(255,255,255,.18)"/>` : "";
   const [rx1, rx2, ry] = g.rim;
   const salt = d.salt ? `<line x1="${rx1+2}" y1="${ry}" x2="${rx2-2}" y2="${ry}" stroke="#fff" stroke-width="5" stroke-dasharray="1.5 2.5" stroke-linecap="round" opacity=".9"/>` : "";
@@ -621,7 +653,7 @@ function glassSVG(d){
       <rect x="0" y="${lt}" width="160" height="3" fill="rgba(255,255,255,.35)"/>
       ${ice}${bubbles}
     </g>
-    ${thick}
+    ${thick}${tap}
     <path d="${g.body}" fill="rgba(255,255,255,.05)" stroke="rgba(255,255,255,.6)" stroke-width="2.2" stroke-linejoin="round"/>
     <line x1="${rx1+10}" y1="${ry+12}" x2="${rx1+14}" y2="${Math.min(ry+70,lb-6)}" stroke="rgba(255,255,255,.35)" stroke-width="3" stroke-linecap="round"/>
     ${salt}
@@ -678,6 +710,21 @@ const DRINKS = [
   {cat:"spritz", name:"Campari Spritz", tag:"Più deciso e amaro dell'Aperol. Per chi ama il bitter.", glass:"wine", c1:"#e8323c", c2:"#a3121c", ice:true, bubbles:true, garnish:["orange"], glow:"#d1202a",
    ingr:[["Prosecco","9 cl"],["Campari","6 cl"],["Soda","3 cl"]], method:"Stessa preparazione dello Spritz classico, con Campari al posto dell'Aperol. Guarnisci con arancia.", chips:["Calice","Facile","13% vol"]},
 
+  {cat:"spritz", name:"Berry Spritz", tag:"Frutti di bosco e bollicine. Rosa, fresco, da tramonto.", glass:"wine", c1:"#ffc2d4", c2:"#e8668f", ice:true, bubbles:true, garnish:["berries"], glow:"#e8668f",
+   ingr:[["Prosecco","9 cl"],["Sciroppo ai frutti di bosco","2 cl"],["Soda","3 cl"],["Mirtilli e lamponi","q.b."]], method:"Ghiaccio e frutti di bosco nel calice, sciroppo, Prosecco e soda. Una girata leggera.", chips:["Calice","Facile","8% vol"]},
+  {cat:"spritz", name:"Cucumber Spritz", tag:"Cetriolo e tonica: il più dissetante delle serate d'estate.", glass:"wine", c1:"#f1fbe6", c2:"#c3e6a4", ice:true, bubbles:true, garnish:["cucumber"], glow:"#9fd36a",
+   ingr:[["Prosecco","9 cl"],["Gin o vodka (facoltativo)","2 cl"],["Acqua tonica","6 cl"],["Nastri di cetriolo","2"]], method:"Avvolgi i nastri di cetriolo nel calice, aggiungi ghiaccio, Prosecco e tonica.", chips:["Calice","Facile","9% vol"]},
+
+  // PUNCH (dosi per dispenser da 5 litri, circa 25 bicchieri)
+  {cat:"punch", name:"Tropical Punch", tag:"Rum, ananas e arancia. Il punch che apre ogni pool party.", glass:"jar", c1:"#ffd27a", c2:"#f29a2e", ice:true, garnish:["orange"], glow:"#f29a2e",
+   ingr:[["Rum bianco","70 cl"],["Succo d'ananas","1,5 l"],["Succo d'arancia","1 l"],["Ginger ale","1,5 l"],["Arance e ananas a fette","q.b."]], method:"Nel dispenser versa rum e succhi, aggiungi la frutta e lascia riposare in fresco. Completa con ginger ale e ghiaccio poco prima di servire.", chips:["Dispenser 5 l","~25 bicchieri","8% vol"]},
+  {cat:"punch", name:"Anguria & Lime", tag:"Anguria frullata, tequila e lime. L'estate pugliese in brocca.", glass:"jar", c1:"#ffb3b8", c2:"#ef5a6a", ice:true, garnish:["lime"], glow:"#ef5a6a",
+   ingr:[["Tequila","70 cl"],["Succo d'anguria fresco","2 l"],["Succo di lime","25 cl"],["Sciroppo di zucchero","15 cl"],["Soda","1 l"]], method:"Frulla e filtra l'anguria, unisci tequila, lime e sciroppo. Al momento del servizio aggiungi soda, ghiaccio, rondelle di lime e cubetti d'anguria.", chips:["Dispenser 5 l","~25 bicchieri","9% vol"]},
+  {cat:"punch", name:"Sangria Bianca", tag:"Vino bianco, pesche e agrumi. Leggera, elegante, da matrimonio.", glass:"jar", c1:"#fbf0c4", c2:"#e9cf7a", ice:true, garnish:["lemon","mint"], glow:"#e9cf7a",
+   ingr:[["Vino bianco secco","3 bottiglie"],["Liquore alla pesca","20 cl"],["Succo d'arancia","50 cl"],["Soda","1 l"],["Pesche, limoni, menta","q.b."]], method:"Lascia macerare la frutta nel vino e nel liquore per almeno 2 ore in frigo. Prima di servire aggiungi succo, soda e ghiaccio.", chips:["Dispenser 5 l","~25 bicchieri","10% vol"]},
+  {cat:"punch", name:"Sunset Punch", tag:"Cocco, ananas e mirtillo rosso a strati: un tramonto da versare.", glass:"jar", stops:[[0,"#ffd86b"],[.55,"#ff9a3d"],[1,"#c8102e"]], ice:true, garnish:["orange"], glow:"#ff7a2a",
+   ingr:[["Rum al cocco","70 cl"],["Succo d'ananas","2 l"],["Succo di mirtillo rosso","1 l"],["Succo d'arancia","50 cl"]], method:"Mescola rum, ananas e arancia nel dispenser con il ghiaccio, poi versa lentamente il mirtillo rosso: scende sul fondo e crea l'effetto tramonto.", chips:["Dispenser 5 l","~25 bicchieri","8% vol"]},
+
   // CLASSICI
   {cat:"classici", name:"Negroni", tag:"Gin, bitter e vermouth in parti uguali. Un'icona nata a Firenze.", glass:"rocks", c1:"#c42a1e", c2:"#6e0f0c", ice:true, garnish:["peel"], glow:"#b3241a",
    ingr:[["Gin","3 cl"],["Bitter rosso","3 cl"],["Vermouth rosso","3 cl"]], method:"Versa tutto in un tumbler basso con un grosso cubo di ghiaccio, mescola 20 secondi e profuma con una scorza d'arancia.", chips:["Tumbler","Medio","24% vol"]},
@@ -701,6 +748,11 @@ const DRINKS = [
    ingr:[["Vodka","3 cl"],["Succo di limone","1,5 cl"],["Sciroppo di zucchero","1 cl"],["Zucchero","bordo"]], method:"Bordo di zucchero, shakera con ghiaccio e filtra.", chips:["Shot","Facile","20% vol"]},
   {cat:"shot", name:"Sunrise", tag:"Il tramonto in miniatura: arancia e granatina.", glass:"shot", stops:[[0,"#ffb43d"],[.55,"#ff8a1f"],[1,"#d3102d"]], garnish:["orange"], glow:"#ff7a2a",
    ingr:[["Tequila","2 cl"],["Succo d'arancia","2 cl"],["Granatina","0,5 cl"]], method:"Tequila e arancia nel bicchierino, poi la granatina lasciata cadere sul fondo per l'effetto alba.", chips:["Shot","Facile","18% vol"]},
+
+  {cat:"shot", name:"Espresso Shot", tag:"Vodka e caffè: la sveglia di mezzanotte.", glass:"shot", stops:[[0,"#d9b48a"],[.1,"#b98a5a"],[.14,"#2a160c"],[1,"#140a05"]], glow:"#8a5a32",
+   ingr:[["Vodka","2 cl"],["Espresso freddo","2 cl"],["Liquore al caffè","1 cl"]], method:"Shakera forte con ghiaccio per creare la crema e filtra nel bicchierino.", chips:["Shot","Facile","22% vol"]},
+  {cat:"shot", name:"Watermelon", tag:"Anguria fresca, vodka e lime. Rosso estate.", glass:"shot", c1:"#ff7a85", c2:"#e3263b", garnish:["lime"], glow:"#e3263b",
+   ingr:[["Vodka","2 cl"],["Succo d'anguria","2 cl"],["Succo di lime","0,5 cl"]], method:"Shakera con ghiaccio e filtra. Decora con un piccolo spicchio d'anguria.", chips:["Shot","Facile","18% vol"]},
 
   // ANALCOLICI
   {cat:"analcolici", name:"Virgin Mojito", tag:"Tutta la freschezza del Mojito, senza alcol.", glass:"highball", c1:"#f4fbe6", c2:"#cfeaa8", ice:true, bubbles:true, garnish:["mint","lime","straw"], glow:"#9fd36a",
@@ -761,24 +813,23 @@ document.querySelectorAll(".tab").forEach(t => t.addEventListener("click", () =>
 }));
 show("spritz");
 
-// Hero + signature glasses
-const heroPick = ["Hugo","Aperol Spritz","Negroni"].map(n => DRINKS.find(d => d.name === n));
-document.getElementById("heroGlasses").innerHTML = heroPick.map(d => `<div class="g">${glassSVG(d)}</div>`).join("");
+// Signature glass
 document.getElementById("sigArt").innerHTML = glassSVG({name:"Tramonto a Polignano", glass:"wine", stops:[[0,"#ffc46b"],[.5,"#ff7a2a"],[1,"#d3102d"]], ice:true, bubbles:true, garnish:["orange","mint"]});
 
-// String lights
-(function(){
-  const g = document.getElementById("bulbs"); let s = "";
-  const pts = [[180,92],[380,40],[580,92],[780,40],[980,92],[1180,40],[1380,92]];
-  pts.forEach(([x,y]) => { s += `<g class="bulb"><circle cx="${x}" cy="${y+14}" r="30" fill="url(#bulb)"/><rect x="${x-3}" y="${y}" width="6" height="7" fill="#3b2719"/><ellipse cx="${x}" cy="${y+14}" rx="6" ry="8" fill="#fff1c9"/></g>`; });
-  g.innerHTML = s;
-})();
+
 
 /* ================= NAV + REVEAL ================= */
 const nav = document.getElementById("nav");
 addEventListener("scroll", () => nav.classList.toggle("scrolled", scrollY > 40), {passive:true});
 const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); } }), {threshold:.12});
 document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+
+// Lightbox posters
+const lb = document.getElementById("lightbox"), lbImg = lb.querySelector("img");
+document.querySelectorAll(".poster").forEach(b => b.addEventListener("click", () => { lbImg.src = b.dataset.full; lbImg.alt = b.querySelector("img").alt; lb.classList.add("open"); document.body.style.overflow = "hidden"; }));
+const closeLb = () => { lb.classList.remove("open"); document.body.style.overflow = ""; };
+lb.addEventListener("click", closeLb);
+addEventListener("keydown", e => { if (e.key === "Escape") closeLb(); });
 
 // Preselect package from buttons
 document.querySelectorAll("[data-pack]").forEach(b => b.addEventListener("click", () => { document.getElementById("package").value = b.dataset.pack; }));
