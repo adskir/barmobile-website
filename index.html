@@ -105,7 +105,7 @@
     @keyframes marquee{to{transform:translateX(-50%)}}
 
     /* SECTIONS */
-    .section{padding:120px 0}
+    .section{scroll-margin-top:70px;padding:120px 0}
     .light{background:var(--cream);color:var(--ink)}
     .kicker{font-size:12px;letter-spacing:.22em;text-transform:uppercase;font-weight:700;color:var(--aperol);margin-bottom:16px}
     h2{font-family:var(--serif);font-size:clamp(40px,5.6vw,72px);line-height:1;letter-spacing:-.025em}
@@ -830,6 +830,17 @@ document.querySelectorAll(".poster").forEach(b => b.addEventListener("click", ()
 const closeLb = () => { lb.classList.remove("open"); document.body.style.overflow = ""; };
 lb.addEventListener("click", closeLb);
 addEventListener("keydown", e => { if (e.key === "Escape") closeLb(); });
+
+// Smooth anchor scroll without "#..." in the address bar
+document.querySelectorAll('a[href^="#"]').forEach(l => l.addEventListener("click", e => {
+  const id = l.getAttribute("href").slice(1);
+  const t = id === "top" ? document.body : document.getElementById(id);
+  if (!t) return;
+  e.preventDefault();
+  if (id === "top") scrollTo({top:0, behavior:"smooth"}); else t.scrollIntoView({behavior:"smooth"});
+  history.replaceState(null, "", location.pathname + location.search);
+}));
+if (location.hash) history.replaceState(null, "", location.pathname + location.search);
 
 // Preselect package from buttons
 document.querySelectorAll("[data-pack]").forEach(b => b.addEventListener("click", () => { document.getElementById("package").value = b.dataset.pack; }));
