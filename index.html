@@ -3,594 +3,814 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SPRITZ BAR — Il bar che viene alla tua festa</title>
-  <meta name="description" content="Mobile cocktail bar a Bari e in tutta la Puglia. Spritz, cocktail signature e Flair Show per matrimoni, ville private, compleanni, pool party ed eventi aziendali.">
-  <meta name="theme-color" content="#f26a21">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <title>Bar Mobile — Cocktail bar per eventi a Bari e in Puglia</title>
+  <meta name="description" content="Mobile cocktail bar a Bari e in tutta la Puglia. Spritz, cocktail classici, shot e Flair Show per matrimoni, ville private, compleanni, pool party ed eventi aziendali.">
+  <link rel="canonical" href="https://barmobile.it/">
+  <meta name="theme-color" content="#120d0a">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://barmobile.it/">
+  <meta property="og:title" content="Bar Mobile — Il bar che viene alla tua festa">
+  <meta property="og:description" content="Spritz, cocktail e Flair Show direttamente nella tua location. Bari e tutta la Puglia.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23120d0a'/%3E%3Cpath d='M8 9h16l-8 10z' fill='%23f26a21'/%3E%3Cpath d='M16 19v6M11 25h10' stroke='%23f6efe3' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="preload" href="/fonts/playfair-display-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/dm-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
   <style>
+    @font-face{font-family:"Playfair Display";font-weight:700;font-style:normal;font-display:swap;src:url(/fonts/playfair-display-latin-700-normal.woff2) format("woff2")}
+    @font-face{font-family:"Playfair Display";font-weight:600;font-style:italic;font-display:swap;src:url(/fonts/playfair-display-latin-600-italic.woff2) format("woff2")}
+    @font-face{font-family:"DM Sans";font-weight:400;font-display:swap;src:url(/fonts/dm-sans-latin-400-normal.woff2) format("woff2")}
+    @font-face{font-family:"DM Sans";font-weight:600;font-display:swap;src:url(/fonts/dm-sans-latin-600-normal.woff2) format("woff2")}
+    @font-face{font-family:"DM Sans";font-weight:700;font-display:swap;src:url(/fonts/dm-sans-latin-700-normal.woff2) format("woff2")}
+
     :root{
-      --ink:#171512;
-      --muted:#6e685f;
-      --paper:#f8f5ef;
-      --cream:#efe9dd;
-      --orange:#f26a21;
-      --orange2:#ff8a3d;
-      --white:#fff;
-      --line:rgba(23,21,18,.12);
-      --shadow:0 20px 60px rgba(23,21,18,.12);
-      --radius:26px;
-      --serif:"Playfair Display", Georgia, serif;
-      --sans:"DM Sans", Arial, sans-serif;
-      --night:#241a12;
-      --night2:#2f2116;
-      --gold:#ffd166;
+      --night:#120d0a;
+      --night2:#1b1410;
+      --night3:#261b14;
+      --wood:#3b2719;
+      --cream:#f6efe3;
+      --sand:#ece2d1;
+      --ink:#171310;
+      --muted:#776d62;
+      --muted-dark:#b9ac9c;
+      --aperol:#f26a21;
+      --aperol2:#ff8a3d;
+      --amber:#ffc46b;
+      --gold:#e9c27a;
+      --line-dark:rgba(246,239,227,.12);
+      --line:rgba(23,19,16,.12);
+      --serif:"Playfair Display",Georgia,serif;
+      --sans:"DM Sans",system-ui,Arial,sans-serif;
+      --r-lg:24px;--r-md:14px;
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
-    body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.55}
-    img{display:block;width:100%;height:100%;object-fit:cover}
+    body{margin:0;background:var(--night);color:var(--cream);font-family:var(--sans);line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:clip}
     a{color:inherit;text-decoration:none}
-    .container{width:min(1180px,calc(100% - 40px));margin:auto}
-    .nav{position:absolute;z-index:10;top:0;left:0;right:0;padding:22px 0;color:#fff}
-    .nav-inner{display:flex;align-items:center;justify-content:space-between}
-    .logo{font-weight:800;letter-spacing:.12em;font-size:15px}
-    .nav-links{display:flex;gap:28px;font-size:13px}
-    .nav-links a{opacity:.9}
-    .nav-cta{padding:11px 17px;border:1px solid rgba(255,255,255,.5);border-radius:999px;font-size:13px;font-weight:700}
-    .hero{min-height:820px;position:relative;color:#fff;display:flex;align-items:flex-end;overflow:hidden;background:#3a2c21}
-    .hero:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.28) 0%,rgba(0,0,0,.1) 32%,rgba(0,0,0,.72) 100%);z-index:1}
-    .hero-media{position:absolute;inset:0}
-    .hero-content{position:relative;z-index:2;padding:170px 0 78px;max-width:900px}
-    .eyebrow{font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;margin-bottom:20px}
-    h1,h2,h3{margin:0}
-    h1{font-family:var(--serif);font-size:clamp(58px,9vw,112px);line-height:.92;letter-spacing:-.045em;max-width:900px}
-    .hero-sub{font-size:clamp(18px,2.2vw,25px);max-width:690px;margin:27px 0 30px}
-    .hero-meta{font-size:12px;letter-spacing:.13em;text-transform:uppercase;opacity:.86;margin-top:20px}
-    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:0;border-radius:999px;background:var(--orange);color:#fff;padding:15px 23px;font-weight:700;font-size:14px;cursor:pointer;transition:.2s transform,.2s background}
-    .btn:hover{transform:translateY(-2px);background:#dc5812}
-    .btn-light{background:#fff;color:var(--ink)}
-    .btn-light:hover{background:#f4eee4}
-    .section{padding:105px 0}
-    .section-tight{padding:70px 0}
-    .kicker{font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:800;color:var(--orange);margin-bottom:14px}
-    h2{font-family:var(--serif);font-size:clamp(43px,6vw,74px);line-height:.98;letter-spacing:-.035em}
-    .lead{font-size:18px;color:var(--muted);max-width:680px}
+    img,svg{display:block;max-width:100%}
+    h1,h2,h3{margin:0;font-weight:700}
+    .container{width:min(1200px,calc(100% - 40px));margin:auto}
+    .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+    /* NAV */
+    .nav{position:fixed;inset:0 0 auto;z-index:40;padding:18px 0;transition:background .3s,padding .3s,border-color .3s;border-bottom:1px solid transparent}
+    .nav.scrolled{background:rgba(18,13,10,.82);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding:12px 0;border-color:var(--line-dark)}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .logo{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.16em;font-size:14px;text-transform:uppercase}
+    .logo-mark{width:30px;height:30px}
+    .nav-links{display:flex;gap:30px;font-size:14px;color:var(--muted-dark)}
+    .nav-links a:hover{color:var(--cream)}
+    .nav-cta{padding:10px 18px;border-radius:999px;background:var(--aperol);color:#fff;font-size:13px;font-weight:700;transition:transform .2s,background .2s}
+    .nav-cta:hover{background:var(--aperol2);transform:translateY(-1px)}
+
+    /* BUTTONS */
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:0;border-radius:999px;background:var(--aperol);color:#fff;padding:15px 26px;font:700 15px var(--sans);cursor:pointer;transition:transform .2s,background .2s,box-shadow .2s;box-shadow:0 10px 30px rgba(242,106,33,.35)}
+    .btn:hover{transform:translateY(-2px);background:var(--aperol2)}
+    .btn-ghost{background:transparent;border:1px solid rgba(246,239,227,.3);box-shadow:none}
+    .btn-ghost:hover{background:rgba(246,239,227,.08)}
+    .btn-cream{background:var(--cream);color:var(--ink);box-shadow:none}
+    .btn-cream:hover{background:#fff}
+
+    /* HERO */
+    .hero{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:center;overflow:hidden;background:radial-gradient(120% 80% at 70% 40%,#3a2516 0%,var(--night) 62%)}
+    .lights{position:absolute;left:0;right:0;top:64px;height:200px;pointer-events:none;z-index:1}
+    .lights .bulb{animation:flicker 4s ease-in-out infinite}
+    .lights .bulb:nth-child(3n){animation-delay:1.3s}
+    .lights .bulb:nth-child(3n+1){animation-delay:2.6s}
+    @keyframes flicker{0%,100%{opacity:1}45%{opacity:.75}50%{opacity:.95}}
+    .hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;padding:150px 0 90px}
+    .eyebrow{font-size:12px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--amber);margin-bottom:22px}
+    h1{font-family:var(--serif);font-size:clamp(52px,7.4vw,104px);line-height:.95;letter-spacing:-.03em}
+    h1 em,h2 em{font-style:italic;font-weight:600;color:var(--aperol2)}
+    .hero-sub{font-size:clamp(17px,1.6vw,20px);color:var(--muted-dark);max-width:540px;margin:26px 0 34px}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:12px}
+    .hero-meta{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:38px;font-size:13px;color:var(--muted-dark)}
+    .hero-meta span:before{content:"✦";color:var(--aperol);margin-right:7px}
+    .hero-glasses{position:relative;display:flex;align-items:flex-end;justify-content:center;gap:0;height:560px}
+    .hero-glasses .g{width:34%;filter:drop-shadow(0 30px 40px rgba(0,0,0,.45))}
+    .hero-glasses .g:nth-child(1){transform:translateY(10px) rotate(-6deg);animation:float 7s ease-in-out infinite}
+    .hero-glasses .g:nth-child(2){width:40%;z-index:2;animation:float 6s ease-in-out infinite .6s}
+    .hero-glasses .g:nth-child(3){transform:translateY(20px) rotate(5deg);animation:float 8s ease-in-out infinite 1.2s}
+    @keyframes float{0%,100%{translate:0 0}50%{translate:0 -12px}}
+    .hero-glasses:before{content:"";position:absolute;bottom:-10px;left:8%;right:8%;height:60px;border-radius:50%;background:radial-gradient(closest-side,rgba(242,106,33,.35),transparent);filter:blur(10px)}
+
+    /* MARQUEE */
+    .marquee{background:var(--aperol);color:#fff;overflow:hidden;white-space:nowrap;padding:16px 0;font-family:var(--serif);font-style:italic;font-weight:600;font-size:22px}
+    .marquee-track{display:inline-flex;gap:38px;animation:marquee 32s linear infinite;padding-left:38px}
+    .marquee-track span:after{content:"✦";font-style:normal;margin-left:38px;font-size:14px;vertical-align:middle;opacity:.7}
+    @keyframes marquee{to{transform:translateX(-50%)}}
+
+    /* SECTIONS */
+    .section{padding:120px 0}
+    .light{background:var(--cream);color:var(--ink)}
+    .kicker{font-size:12px;letter-spacing:.22em;text-transform:uppercase;font-weight:700;color:var(--aperol);margin-bottom:16px}
+    h2{font-family:var(--serif);font-size:clamp(40px,5.6vw,72px);line-height:1;letter-spacing:-.025em}
+    .lead{font-size:18px;color:var(--muted-dark);max-width:620px}
+    .light .lead{color:var(--muted)}
+    .head-row{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;flex-wrap:wrap}
+
     .intro{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:end}
-    .intro-copy p{font-size:20px;max-width:620px;color:#4f4a44}
-    .pill-row{display:flex;flex-wrap:wrap;gap:9px;margin-top:26px}
-    .pill{border:1px solid var(--line);border-radius:999px;padding:9px 13px;font-size:12px;font-weight:700}
-    .feature-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:58px}
-    .feature{background:#fff;border-radius:var(--radius);padding:28px;min-height:220px;box-shadow:0 1px 0 rgba(0,0,0,.04)}
-    .feature .icon{font-size:28px;margin-bottom:30px}
+    .intro p{font-size:20px;color:#4f463d;margin:0}
+    .features{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:64px}
+    .feature{background:#fff;border-radius:var(--r-lg);padding:30px;border:1px solid var(--line);transition:transform .25s,box-shadow .25s}
+    .feature:hover{transform:translateY(-4px);box-shadow:0 20px 50px rgba(23,19,16,.08)}
+    .feature-ico{width:48px;height:48px;border-radius:14px;background:#fde6d7;display:grid;place-items:center;margin-bottom:26px}
+    .feature-ico svg{width:26px;height:26px}
     .feature h3{font-family:var(--serif);font-size:25px;margin-bottom:8px}
-    .feature p{font-size:14px;color:var(--muted);margin:0}
-    .dark{background:var(--night);color:#fff}
-    .garland{width:100%;display:block;overflow:visible}
-    .garland-wrap{line-height:0;background:var(--night2)}
-    .illustration{width:100%;height:100%;display:flex;align-items:center;justify-content:center;padding:26px}
-    .illustration svg{width:100%;height:100%}
-    .illustration.cream{background:var(--cream)}
-    .illustration.night{background:var(--night2)}
-    .illustration-label{position:absolute;left:18px;bottom:16px;z-index:2;color:#fff;font-size:12px;font-weight:800;letter-spacing:.06em;background:rgba(23,21,18,.55);padding:7px 12px;border-radius:999px;backdrop-filter:blur(3px)}
-    .photo{position:relative}
-    .dark .lead{color:#bdb7ae}
-    .pricing-head{display:flex;justify-content:space-between;gap:40px;align-items:end}
-    .price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:50px}
-    .price-card{background:#24211d;border:1px solid rgba(255,255,255,.1);border-radius:var(--radius);padding:30px;position:relative}
-    .price-card.featured{background:var(--orange);border-color:var(--orange);transform:translateY(-10px)}
-    .price-tag{font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:800;opacity:.8}
-    .price-name{font-family:var(--serif);font-size:37px;margin-top:14px}
-    .price{font-size:46px;font-weight:800;letter-spacing:-.04em;margin:12px 0 4px}
-    .price small{font-size:13px;font-weight:500;letter-spacing:0;color:#aaa}
-    .featured .price small{color:#ffe5d6}
-    .price-desc{font-size:13px;color:#aaa;margin-bottom:24px}
-    .featured .price-desc{color:#ffe5d6}
-    .checklist{list-style:none;padding:0;margin:0 0 28px}
-    .checklist li{padding:8px 0;border-top:1px solid rgba(255,255,255,.1);font-size:13px}
-    .featured .checklist li{border-color:rgba(255,255,255,.25)}
-    .checklist li:before{content:"✓";font-weight:800;margin-right:9px}
-    .btn-outline{background:transparent;border:1px solid rgba(255,255,255,.35)}
-    .btn-outline:hover{background:#fff;color:var(--ink)}
-    .featured .btn{background:#fff;color:var(--ink)}
-    .note{text-align:center;color:#aaa;font-size:13px;margin:30px auto 0;max-width:720px}
-    .gallery{display:grid;grid-template-columns:1.15fr .85fr .85fr;grid-template-rows:280px 280px;gap:14px;margin-top:55px}
-    .gallery .g1{grid-row:span 2}
-    .gallery .g4{grid-column:2 / span 2}
-    .photo{border-radius:22px;overflow:hidden;position:relative}
-    .photo:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(0,0,0,.25))}
-    .formats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:55px}
-    .format{background:var(--cream);border-radius:var(--radius);padding:30px;min-height:220px}
-    .format h3{font-family:var(--serif);font-size:31px;margin-bottom:12px}
-    .format p{color:var(--muted);font-size:14px}
-    .format strong{font-size:13px}
-    .showcase{display:grid;grid-template-columns:.95fr 1.05fr;gap:70px;align-items:center}
-    .showcase-photo{height:650px;border-radius:30px;overflow:hidden}
-    .showcase-copy .quote{font-family:var(--serif);font-size:clamp(35px,4vw,57px);line-height:1.02;margin:25px 0}
-    .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:55px}
-    .step{border-top:2px solid var(--ink);padding-top:18px}
-    .step-num{font-size:12px;font-weight:800;color:var(--orange)}
-    .step h3{font-family:var(--serif);font-size:25px;margin:15px 0 7px}
-    .step p{font-size:13px;color:var(--muted)}
-    .puglia{background:#e9dfcf}
+    .feature p{font-size:14.5px;color:var(--muted);margin:0}
+
+    /* DRINK LIST */
+    .menu{background:radial-gradient(90% 60% at 50% 0%,#2a1c12 0%,var(--night) 70%);position:relative}
+    .tabs{display:flex;flex-wrap:wrap;gap:8px;margin-top:44px}
+    .tab{border:1px solid var(--line-dark);background:transparent;color:var(--muted-dark);border-radius:999px;padding:11px 20px;font:600 14px var(--sans);cursor:pointer;transition:all .2s}
+    .tab:hover{color:var(--cream);border-color:rgba(246,239,227,.35)}
+    .tab[aria-selected="true"]{background:var(--cream);color:var(--ink);border-color:var(--cream)}
+    .drinks{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:34px}
+    .drink{perspective:1400px;height:470px}
+    .drink-inner{position:relative;width:100%;height:100%;transition:transform .7s cubic-bezier(.2,.7,.2,1);transform-style:preserve-3d}
+    .drink.flipped .drink-inner{transform:rotateY(180deg)}
+    .face{position:absolute;inset:0;border-radius:var(--r-lg);backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;border:1px solid var(--line-dark);display:flex;flex-direction:column}
+    .front{background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.015));}
+    .front-art{flex:1;position:relative;display:flex;align-items:flex-end;justify-content:center;padding-top:18px}
+    .front-art:before{content:"";position:absolute;left:15%;right:15%;bottom:4%;height:42%;border-radius:50%;background:radial-gradient(closest-side,var(--glow,#f26a21),transparent);opacity:.38;filter:blur(18px)}
+    .front-art svg{position:relative;height:250px;width:auto;transition:transform .4s}
+    .drink:hover .front-art svg{transform:translateY(-6px) rotate(-2deg)}
+    .front-body{padding:18px 22px 22px}
+    .drink-cat{font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--gold)}
+    .drink-name{font-family:var(--serif);font-size:27px;line-height:1.1;margin:6px 0 6px}
+    .drink-tag{font-size:13.5px;color:var(--muted-dark);margin:0 0 14px;min-height:42px}
+    .flip-btn{display:inline-flex;align-items:center;gap:8px;background:transparent;border:0;color:var(--amber);font:700 13px var(--sans);letter-spacing:.06em;text-transform:uppercase;cursor:pointer;padding:0}
+    .flip-btn:hover{color:#fff}
+    .back{transform:rotateY(180deg);background:var(--cream);color:var(--ink);padding:26px 24px}
+    .back .drink-name{font-size:24px;margin-top:4px}
+    .back h4{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--aperol);margin:16px 0 8px}
+    .ingr{list-style:none;margin:0;padding:0;font-size:14px}
+    .ingr li{display:flex;justify-content:space-between;gap:12px;padding:6px 0;border-bottom:1px dashed rgba(23,19,16,.16)}
+    .ingr b{font-weight:700;white-space:nowrap}
+    .method{font-size:13.5px;color:#4f463d;margin:0}
+    .meta-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:14px}
+    .chip{font-size:11.5px;font-weight:600;padding:5px 10px;border-radius:999px;background:var(--sand)}
+    .back .flip-btn{color:var(--aperol);margin-top:14px}
+    .menu-note{margin-top:36px;color:var(--muted-dark);font-size:14px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+
+    /* SIGNATURE */
+    .signature{display:grid;grid-template-columns:.9fr 1.1fr;gap:60px;align-items:center;margin-top:80px;padding:50px;border-radius:32px;background:linear-gradient(135deg,#3a1d0e 0%,#1b1410 60%);border:1px solid var(--line-dark);position:relative;overflow:hidden}
+    .signature:after{content:"";position:absolute;right:-120px;top:-120px;width:360px;height:360px;border-radius:50%;background:radial-gradient(closest-side,rgba(242,106,33,.35),transparent)}
+    .signature-art{display:flex;justify-content:center}
+    .signature-art svg{height:380px;width:auto;filter:drop-shadow(0 30px 40px rgba(0,0,0,.5))}
+    .signature h3{font-family:var(--serif);font-size:clamp(34px,4vw,52px);line-height:1.02;margin:10px 0 16px}
+    .signature .ingr{color:var(--cream);max-width:420px;margin:20px 0 26px}
+    .signature .ingr li{border-color:rgba(246,239,227,.15)}
+
+    /* PACKAGES */
+    .prices{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:60px;align-items:stretch}
+    .price-card{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);padding:34px;display:flex;flex-direction:column}
+    .price-card.featured{background:var(--night);color:var(--cream);border-color:var(--night);transform:translateY(-12px);box-shadow:0 30px 60px rgba(23,19,16,.25)}
+    .price-tag{font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--aperol)}
+    .price-name{font-family:var(--serif);font-size:38px;margin-top:12px}
+    .price{font-size:48px;font-weight:700;letter-spacing:-.04em;margin:10px 0 2px}
+    .price small{font-size:14px;font-weight:400;letter-spacing:0;color:var(--muted)}
+    .featured .price small{color:var(--muted-dark)}
+    .price-desc{font-size:14px;color:var(--muted);margin-bottom:22px}
+    .featured .price-desc{color:var(--muted-dark)}
+    .checklist{list-style:none;padding:0;margin:0 0 30px;flex:1}
+    .checklist li{padding:10px 0;border-top:1px solid var(--line);font-size:14.5px;display:flex;gap:10px}
+    .featured .checklist li{border-color:var(--line-dark)}
+    .checklist li:before{content:"✓";color:var(--aperol);font-weight:700}
+    .price-card .btn{box-shadow:none}
+    .price-card:not(.featured) .btn{background:var(--ink)}
+    .price-card:not(.featured) .btn:hover{background:#000}
+    .note{text-align:center;color:var(--muted);font-size:14px;margin:34px auto 0;max-width:720px}
+
+    /* FLAIR */
+    .flair{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+    .flair-art{border-radius:32px;overflow:hidden;background:radial-gradient(circle at 50% 45%,#4a2a14,#1b1410 70%);aspect-ratio:4/5;display:flex;align-items:center;justify-content:center;border:1px solid var(--line-dark)}
+    .flair-art svg{width:85%;height:auto}
+    .quote{font-family:var(--serif);font-style:italic;font-weight:600;font-size:clamp(30px,3.4vw,46px);line-height:1.08;margin:24px 0;color:var(--amber)}
+
+    /* STEPS */
+    .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:60px;counter-reset:s}
+    .step{border-top:2px solid var(--ink);padding-top:20px}
+    .step-num{font-family:var(--serif);font-style:italic;font-weight:600;font-size:40px;color:var(--aperol);line-height:1}
+    .step h3{font-family:var(--serif);font-size:26px;margin:14px 0 8px}
+    .step p{font-size:14.5px;color:var(--muted);margin:0}
+
+    /* PUGLIA */
+    .puglia{background:var(--sand);color:var(--ink)}
     .puglia-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
-    .puglia-photo{height:620px;border-radius:30px;overflow:hidden}
-    .location-list{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:25px}
-    .location-list div{font-weight:700;font-size:14px}
-    .faq{max-width:820px;margin:55px auto 0}
-    details{border-top:1px solid var(--line);padding:21px 0}
-    summary{cursor:pointer;font-weight:800;list-style:none;display:flex;justify-content:space-between;gap:20px}
-    summary:after{content:"+";color:var(--orange);font-size:20px}
-    details[open] summary:after{content:"−"}
-    details p{color:var(--muted);max-width:700px;font-size:14px;margin:13px 0 0}
-    .contact{background:var(--orange);color:#fff}
-    .contact-grid{display:grid;grid-template-columns:1fr .9fr;gap:70px;align-items:start}
-    .contact h2{max-width:680px}
-    .contact .lead{color:#fff;opacity:.86;margin-top:20px}
-    form{background:#fff;color:var(--ink);border-radius:28px;padding:28px}
+    .places{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
+    .place{padding:10px 16px;border-radius:999px;background:#fff;font-weight:600;font-size:14px;border:1px solid var(--line)}
+    .puglia-art{border-radius:32px;overflow:hidden;aspect-ratio:1/1;background:linear-gradient(180deg,#ffb36b 0%,#f26a21 48%,#3b2719 48.2%,#261b14 100%)}
+    .puglia-art svg{width:100%;height:100%}
+
+    /* FAQ */
+    .faq{max-width:840px;margin:56px auto 0}
+    details{border-top:1px solid var(--line);padding:22px 0}
+    details:last-child{border-bottom:1px solid var(--line)}
+    summary{cursor:pointer;font-weight:700;font-size:17px;list-style:none;display:flex;justify-content:space-between;gap:20px}
+    summary::-webkit-details-marker{display:none}
+    summary:after{content:"+";color:var(--aperol);font-size:24px;line-height:1;transition:transform .2s}
+    details[open] summary:after{transform:rotate(45deg)}
+    details p{color:var(--muted);max-width:720px;font-size:15px;margin:12px 0 0}
+
+    /* CONTACT */
+    .contact{background:var(--aperol);color:#fff;position:relative;overflow:hidden}
+    .contact-grid{display:grid;grid-template-columns:1fr .95fr;gap:70px;align-items:start;position:relative}
+    .contact .kicker{color:#fff;opacity:.85}
+    .contact .lead{color:#fff;opacity:.9;margin-top:22px}
+    form{background:var(--cream);color:var(--ink);border-radius:28px;padding:30px;box-shadow:0 30px 60px rgba(0,0,0,.18)}
     .field{margin-bottom:14px}
-    label{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.12em;font-weight:800;margin-bottom:7px}
-    input,select,textarea{width:100%;border:1px solid #ddd5c9;border-radius:13px;background:#fff;padding:13px 14px;font:inherit;font-size:14px;outline:none}
-    input:focus,select:focus,textarea:focus{border-color:var(--orange)}
-    textarea{min-height:105px;resize:vertical}
+    label{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.14em;font-weight:700;margin-bottom:7px}
+    input,select,textarea{width:100%;border:1px solid #d9cdb9;border-radius:var(--r-md);background:#fff;padding:13px 14px;font:inherit;font-size:15px;color:var(--ink);outline:none;transition:border-color .2s}
+    input:focus,select:focus,textarea:focus{border-color:var(--aperol)}
+    textarea{min-height:100px;resize:vertical}
     .form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-    .form-note{font-size:11px;color:#8a837a;margin-top:10px}
-    footer{background:#12110f;color:#fff;padding:34px 0}
-    .footer-inner{display:flex;justify-content:space-between;gap:20px;align-items:center}
-    .footer-small{font-size:11px;color:#8d887f}
-    .floating{position:fixed;z-index:30;right:18px;bottom:18px;background:#25d366;color:#fff;border-radius:999px;padding:14px 18px;font-weight:800;font-size:13px;box-shadow:0 12px 30px rgba(0,0,0,.2)}
-    .source-note{font-size:10px;color:#999;margin-top:18px}
+    .form-note{font-size:12px;color:var(--muted);margin-top:12px}
+    .form-note a{text-decoration:underline}
+    .form-status{display:none;margin-top:14px;padding:12px 14px;border-radius:var(--r-md);font-size:14px;font-weight:600}
+    .form-status.ok{display:block;background:#e3f3e1;color:#1d5a26}
+    .form-status.err{display:block;background:#fde3d9;color:#8a2a0a}
+    .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+
+    /* FOOTER */
+    footer{background:var(--night);padding:44px 0 30px;border-top:1px solid var(--line-dark)}
+    .footer-inner{display:flex;justify-content:space-between;gap:20px;align-items:center;flex-wrap:wrap}
+    .footer-small{font-size:13px;color:var(--muted-dark)}
+    .footer-small a:hover{color:var(--cream)}
+    .site-credit{margin-top:26px;padding-top:20px;border-top:1px solid var(--line-dark);text-align:center}
+    .site-credit a{font-family:var(--serif);font-style:italic;font-weight:600;font-size:.85rem;color:rgba(246,239,227,.4);transition:color .25s}
+    .site-credit a:hover{color:var(--amber)}
+    .floating{position:fixed;z-index:30;right:18px;bottom:18px;background:#25d366;color:#fff;border-radius:999px;padding:14px 20px;font-weight:700;font-size:14px;box-shadow:0 12px 30px rgba(0,0,0,.3);display:none}
+
+    /* reveal */
+    .reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}
+    .reveal.in{opacity:1;transform:none}
+
+    @media (prefers-reduced-motion:reduce){
+      *,*:before,*:after{animation:none!important;transition:none!important}
+      .reveal{opacity:1;transform:none}
+    }
+
+    @media(max-width:1100px){
+      .drinks{grid-template-columns:repeat(3,1fr)}
+    }
     @media(max-width:900px){
       .nav-links{display:none}
-      .hero{min-height:760px}
-      .intro,.showcase,.puglia-grid,.contact-grid{grid-template-columns:1fr;gap:35px}
-      .feature-grid{grid-template-columns:1fr 1fr}
-      .price-grid,.formats{grid-template-columns:1fr}
+      .hero-grid{grid-template-columns:1fr;padding:130px 0 70px;gap:20px}
+      .hero-glasses{height:360px;order:-1;margin-bottom:-10px}
+      .intro,.flair,.puglia-grid,.contact-grid,.signature{grid-template-columns:1fr;gap:40px}
+      .features{grid-template-columns:1fr 1fr}
+      .drinks{grid-template-columns:1fr 1fr}
+      .prices{grid-template-columns:1fr}
       .price-card.featured{transform:none}
-      .gallery{grid-template-columns:1fr 1fr;grid-template-rows:260px 260px 260px}
-      .gallery .g1{grid-row:span 2}
-      .gallery .g4{grid-column:1 / span 2}
       .steps{grid-template-columns:1fr 1fr}
-      .showcase-photo,.puglia-photo{height:500px}
+      .signature{padding:34px}
+      .signature-art svg{height:300px}
     }
     @media(max-width:560px){
-      .container{width:min(100% - 28px,1180px)}
-      .section{padding:76px 0}
-      .nav{padding:18px 0}
-      .nav-cta{padding:9px 13px}
-      .hero-content{padding:150px 0 50px}
-      h1{font-size:59px}
-      .feature-grid,.steps,.form-row{grid-template-columns:1fr}
-      .gallery{display:grid;grid-template-columns:1fr;grid-template-rows:330px 220px 220px 260px}
-      .gallery .g1{grid-row:auto}
-      .gallery .g4{grid-column:auto}
-      .pricing-head{display:block}
-      .price-card{padding:25px}
-      .showcase-photo,.puglia-photo{height:390px}
-      .location-list{grid-template-columns:1fr}
-      .floating{left:14px;right:14px;text-align:center}
+      .container{width:calc(100% - 32px)}
+      .section{padding:84px 0}
+      .nav-cta{padding:9px 14px;font-size:12px}
+      .logo span{display:none}
+      .hero-glasses{height:280px}
+      .features,.steps,.form-row{grid-template-columns:1fr}
+      .drinks{grid-template-columns:1fr}
+      .drink{height:450px}
+      .tabs{flex-wrap:nowrap;overflow-x:auto;margin-left:-16px;margin-right:-16px;padding:0 16px 6px;scrollbar-width:none}
+      .tabs::-webkit-scrollbar{display:none}
+      .tab{flex:none}
+      .marquee{font-size:18px}
+      .floating{left:16px;right:16px;text-align:center}
     }
   </style>
 </head>
 <body>
 
-<header class="nav">
+<header class="nav" id="nav">
   <div class="container nav-inner">
-    <a href="#" class="logo">SPRITZ BAR</a>
-    <nav class="nav-links">
-      <a href="#experience">Esperienza</a>
-      <a href="#packages">Pacchetti</a>
-      <a href="#events">Eventi</a>
+    <a href="#top" class="logo" aria-label="Bar Mobile — home">
+      <svg class="logo-mark" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#f26a21"/><path d="M8 9h16l-8 10z" fill="#fff"/><path d="M16 19v6M11.5 25h9" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
+      <span>Bar Mobile</span>
+    </a>
+    <nav class="nav-links" aria-label="Menu principale">
+      <a href="#drink">Drink list</a>
+      <a href="#pacchetti">Pacchetti</a>
+      <a href="#flair">Flair show</a>
       <a href="#faq">FAQ</a>
     </nav>
-    <a class="nav-cta" href="#contact">Richiedi un preventivo</a>
+    <a class="nav-cta" href="#contatti">Preventivo</a>
   </div>
 </header>
 
-<main>
+<main id="top">
   <section class="hero">
-    <div class="hero-media">
-      <svg viewBox="0 0 1200 900" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <radialGradient id="heroGlow" cx="50%" cy="30%" r="75%">
-            <stop offset="0%" stop-color="#4a3220"/>
-            <stop offset="100%" stop-color="#241a12"/>
-          </radialGradient>
-          <radialGradient id="bulbGlow" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stop-color="#fff3c4"/>
-            <stop offset="45%" stop-color="#ffd166"/>
-            <stop offset="100%" stop-color="#ffd166" stop-opacity="0"/>
-          </radialGradient>
-        </defs>
-        <rect width="1200" height="900" fill="url(#heroGlow)"/>
-        <!-- garland strung across the top -->
-        <g id="hero-garland" stroke="#5b4128" stroke-width="2" fill="none" opacity=".9">
-          <path d="M-20,70 Q160,190 340,70 T700,70 T1060,70 T1420,70"/>
-        </g>
-        <g id="hero-bulbs">
-          <circle cx="160" cy="150" r="22" fill="url(#bulbGlow)"/><circle cx="160" cy="150" r="6" fill="#ffe9a8"/>
-          <circle cx="340" cy="70" r="22" fill="url(#bulbGlow)"/><circle cx="340" cy="70" r="6" fill="#ffe9a8"/>
-          <circle cx="520" cy="150" r="22" fill="url(#bulbGlow)"/><circle cx="520" cy="150" r="6" fill="#ffe9a8"/>
-          <circle cx="700" cy="70" r="22" fill="url(#bulbGlow)"/><circle cx="700" cy="70" r="6" fill="#ffe9a8"/>
-          <circle cx="880" cy="150" r="22" fill="url(#bulbGlow)"/><circle cx="880" cy="150" r="6" fill="#ffe9a8"/>
-          <circle cx="1060" cy="70" r="22" fill="url(#bulbGlow)"/><circle cx="1060" cy="70" r="6" fill="#ffe9a8"/>
-        </g>
-        <!-- mobile bar cart -->
-        <g transform="translate(330,330)">
-          <!-- canopy -->
-          <path d="M-40,-60 L280,-60 L320,20 L-80,20 Z" fill="#f26a21"/>
-          <path d="M-80,20 L0,20 L-40,-60 Z" fill="#ff8a3d"/>
-          <path d="M40,20 L120,20 L100,-60 L60,-60 Z" fill="#ff8a3d"/>
-          <path d="M200,20 L280,20 L260,-60 L220,-60 Z" fill="#ff8a3d"/>
-          <rect x="110" y="20" width="20" height="60" fill="#5b4128"/>
-          <!-- cart body -->
-          <rect x="-60" y="80" width="380" height="180" rx="18" fill="#f8f5ef"/>
-          <rect x="-60" y="80" width="380" height="18" fill="#efe9dd"/>
-          <!-- shelf with bottles -->
-          <rect x="-30" y="110" width="330" height="10" fill="#ddd5c9"/>
-          <g>
-            <rect x="-10" y="55" width="22" height="60" rx="6" fill="#f26a21"/>
-            <rect x="20" y="40" width="22" height="75" rx="6" fill="#171512"/>
-            <rect x="50" y="60" width="22" height="55" rx="6" fill="#ff8a3d"/>
-            <rect x="80" y="35" width="22" height="80" rx="6" fill="#f26a21"/>
-            <rect x="150" y="50" width="22" height="65" rx="6" fill="#171512"/>
-            <rect x="180" y="42" width="22" height="73" rx="6" fill="#ff8a3d"/>
-            <rect x="210" y="58" width="22" height="57" rx="6" fill="#f26a21"/>
-          </g>
-          <!-- ice bucket -->
-          <path d="M245,150 L275,150 L268,205 L252,205 Z" fill="#efe9dd"/>
-          <circle cx="252" cy="150" r="4" fill="#fff"/><circle cx="262" cy="147" r="4" fill="#fff"/><circle cx="270" cy="152" r="4" fill="#fff"/>
-          <!-- wheels -->
-          <circle cx="0" cy="270" r="26" fill="#171512"/><circle cx="0" cy="270" r="9" fill="#efe9dd"/>
-          <circle cx="260" cy="270" r="26" fill="#171512"/><circle cx="260" cy="270" r="9" fill="#efe9dd"/>
-          <rect x="-40" y="255" width="40" height="14" rx="6" fill="#171512"/>
-        </g>
-        <!-- ground shadow -->
-        <ellipse cx="580" cy="640" rx="420" ry="26" fill="#000" opacity=".22"/>
-      </svg>
-    </div>
-    <div class="container hero-content">
-      <div class="eyebrow">Bari · Puglia · Ovunque ci sia qualcosa da festeggiare</div>
-      <h1>Il bar che viene alla tua festa.</h1>
-      <p class="hero-sub">Carretto bar, luci calde e Flair Show: portiamo tutta l'atmosfera direttamente nella tua location.</p>
-      <a class="btn btn-light" href="#contact">🍊 Richiedi un preventivo</a>
-      <div class="hero-meta">Matrimoni · Ville private · Compleanni · Pool party · Eventi aziendali</div>
+    <svg class="lights" viewBox="0 0 1440 200" preserveAspectRatio="xMidYMin slice" aria-hidden="true">
+      <defs>
+        <radialGradient id="bulb" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#fff4cf"/><stop offset="40%" stop-color="#ffc46b" stop-opacity=".9"/><stop offset="100%" stop-color="#ffc46b" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+      <path d="M-20,30 Q180,150 380,40 T780,40 T1180,40 T1580,40" stroke="#5b4128" stroke-width="2" fill="none"/>
+      <g id="bulbs"></g>
+    </svg>
+
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow">Mobile cocktail bar · Bari &amp; Puglia</div>
+        <h1>Il bar che viene <em>alla tua festa.</em></h1>
+        <p class="hero-sub">Spritz, cocktail classici e Flair Show, serviti dal nostro carretto bar direttamente nella tua location. Tu inviti gli ospiti, al resto pensiamo noi.</p>
+        <div class="hero-actions">
+          <a class="btn" href="#contatti">Richiedi un preventivo</a>
+          <a class="btn btn-ghost" href="#drink">Scopri la drink list</a>
+        </div>
+        <div class="hero-meta"><span>Matrimoni</span><span>Ville private</span><span>Compleanni</span><span>Pool party</span><span>Aziende</span></div>
+      </div>
+      <div class="hero-glasses" id="heroGlasses" aria-hidden="true"></div>
     </div>
   </section>
 
-  <section class="section" id="experience">
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Aperol Spritz</span><span>Hugo</span><span>Negroni</span><span>Mojito</span><span>Espresso Martini</span><span>Paloma</span><span>Flair Show</span><span>Limoncello Spritz</span>
+      <span>Aperol Spritz</span><span>Hugo</span><span>Negroni</span><span>Mojito</span><span>Espresso Martini</span><span>Paloma</span><span>Flair Show</span><span>Limoncello Spritz</span>
+    </div>
+  </div>
+
+  <section class="section light" id="esperienza">
     <div class="container">
-      <div class="intro">
+      <div class="intro reveal">
         <div>
-          <div class="kicker">Non è solo un bar.</div>
-          <h2>È parte<br>della festa.</h2>
+          <div class="kicker">Non è solo un bar</div>
+          <h2>È parte<br><em>della festa.</em></h2>
         </div>
-        <div class="intro-copy">
-          <p>Portiamo il nostro cocktail bar direttamente nella tua location. Prepariamo drink freschi, serviamo Spritz e trasformiamo il momento del cocktail in qualcosa che i tuoi ospiti ricorderanno.</p>
-          <div class="pill-row">
-            <span class="pill">Mobile bar</span><span class="pill">Cocktail freschi</span><span class="pill">Drink signature</span><span class="pill">Flair show</span>
-          </div>
-        </div>
+        <p>Arriviamo con carretto, attrezzatura, ghiaccio e bicchieri. Prepariamo drink freschi davanti ai tuoi ospiti e trasformiamo il momento del cocktail in quello che si ricorderanno.</p>
       </div>
-
-      <div class="feature-grid">
-        <article class="feature"><div class="icon">🍊</div><h3>Spritz Bar</h3><p>Aperol, Hugo, Limoncello, Campari e molto altro. Il classico aperitivo italiano, portato alla tua festa.</p></article>
-        <article class="feature"><div class="icon">🍸</div><h3>Cocktail Bar</h3><p>Classici, signature cocktail e drink creati su misura per il tuo evento.</p></article>
-        <article class="feature"><div class="icon">🔥</div><h3>Flair Show</h3><p>Bottiglie, shaker e tecnica. Un bartender che non si limita a preparare il drink: fa spettacolo.</p></article>
-        <article class="feature"><div class="icon">✨</div><h3>Signature Drink</h3><p>Un cocktail creato appositamente per te. Perché ogni festa dovrebbe avere il suo drink.</p></article>
+      <div class="features">
+        <article class="feature reveal">
+          <div class="feature-ico"><svg viewBox="0 0 24 24" fill="none" stroke="#f26a21" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l-1 7a5 5 0 0 1-10 0z"/><path d="M12 15v6M8 21h8"/></svg></div>
+          <h3>Spritz Bar</h3><p>Aperol, Hugo, Limoncello, Campari. Il rito dell'aperitivo italiano, portato alla tua festa.</p>
+        </article>
+        <article class="feature reveal">
+          <div class="feature-ico"><svg viewBox="0 0 24 24" fill="none" stroke="#f26a21" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16l-8 9z"/><path d="M12 13v8M8 21h8M15 4l3-3"/></svg></div>
+          <h3>Cocktail Bar</h3><p>Grandi classici e drink signature, con ingredienti freschi e dosi da bartender.</p>
+        </article>
+        <article class="feature reveal">
+          <div class="feature-ico"><svg viewBox="0 0 24 24" fill="none" stroke="#f26a21" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c1 3 4 4 4 8a4 4 0 0 1-8 0c0-2 1-3 2-4 0 2 1 3 2 3 0-3-1-5 0-7z"/><path d="M6 22h12"/></svg></div>
+          <h3>Flair Show</h3><p>Bottiglie e shaker che volano. Un bartender che non prepara il drink: fa spettacolo.</p>
+        </article>
+        <article class="feature reveal">
+          <div class="feature-ico"><svg viewBox="0 0 24 24" fill="none" stroke="#f26a21" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.5 5.5L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.5-.5z"/></svg></div>
+          <h3>Signature Drink</h3><p>Un cocktail creato solo per il tuo evento, con il nome che sceglierai tu.</p>
+        </article>
       </div>
     </div>
   </section>
 
-  <section class="section dark" id="packages">
+  <section class="section menu" id="drink">
     <div class="container">
-      <div class="pricing-head">
-        <div><div class="kicker">Scegli il tuo format</div><h2>Tre modi<br>di festeggiare.</h2></div>
+      <div class="head-row reveal">
+        <div>
+          <div class="kicker">La drink list</div>
+          <h2>Scegli il tuo <em>drink.</em></h2>
+        </div>
+        <p class="lead">Tocca una card per vedere la ricetta: dosi, bicchiere e preparazione. Al tuo evento componiamo il menu insieme.</p>
+      </div>
+
+      <div class="tabs" role="tablist" aria-label="Categorie drink" id="tabs">
+        <button class="tab" role="tab" aria-selected="true" data-cat="spritz">Spritz</button>
+        <button class="tab" role="tab" aria-selected="false" data-cat="classici">Classici</button>
+        <button class="tab" role="tab" aria-selected="false" data-cat="shot">Shot</button>
+        <button class="tab" role="tab" aria-selected="false" data-cat="analcolici">Analcolici</button>
+      </div>
+
+      <div class="drinks" id="drinks" role="tabpanel" aria-live="polite"></div>
+
+      <div class="signature reveal" id="signature">
+        <div class="signature-art" id="sigArt" aria-hidden="true"></div>
+        <div style="position:relative;z-index:1">
+          <div class="kicker">Signature della casa</div>
+          <h3>Tramonto a Polignano</h3>
+          <p class="lead">Il nostro drink di benvenuto: agrumi pugliesi, un tocco di bitter e bollicine. Arancione come il cielo sopra Lama Monachile.</p>
+          <ul class="ingr">
+            <li><span>Prosecco</span><b>9 cl</b></li>
+            <li><span>Bitter all'arancia</span><b>4 cl</b></li>
+            <li><span>Succo d'arancia fresco</span><b>3 cl</b></li>
+            <li><span>Sciroppo di fiori d'arancio</span><b>1 cl</b></li>
+            <li><span>Soda</span><b>top</b></li>
+          </ul>
+          <a class="btn" href="#contatti">Voglio il mio signature</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section light" id="pacchetti">
+    <div class="container">
+      <div class="head-row reveal">
+        <div><div class="kicker">Scegli il format</div><h2>Tre modi<br><em>di festeggiare.</em></h2></div>
         <p class="lead">Prezzi indicativi per iniziare. Il preventivo finale dipende da ospiti, durata, drink list e location.</p>
       </div>
-
-      <div class="price-grid">
-        <article class="price-card">
+      <div class="prices">
+        <article class="price-card reveal">
           <div class="price-tag">01 · Aperitivo</div><div class="price-name">Spritz</div>
           <div class="price">€390 <small>da</small></div>
           <div class="price-desc">Fino a 30 ospiti · fino a 2 ore</div>
-          <ul class="checklist">
-            <li>3 Spritz a scelta</li><li>Prosecco e analcolici</li><li>Acqua, ghiaccio e bicchieri</li><li>Bartender + mobile bar</li>
-          </ul>
-          <a class="btn btn-outline" href="#contact">Richiedi il preventivo</a>
+          <ul class="checklist"><li>3 Spritz a scelta</li><li>Prosecco e analcolici</li><li>Acqua, ghiaccio e bicchieri</li><li>Bartender + carretto bar</li></ul>
+          <a class="btn" href="#contatti" data-pack="Spritz — da €390">Richiedi il preventivo</a>
         </article>
-
-        <article class="price-card featured">
-          <div class="price-tag">02 · Più richiesto</div><div class="price-name">Cocktail</div>
+        <article class="price-card featured reveal">
+          <div class="price-tag">02 · Il più richiesto</div><div class="price-name">Cocktail</div>
           <div class="price">€590 <small>da</small></div>
           <div class="price-desc">Fino a 50 ospiti · fino a 3 ore</div>
-          <ul class="checklist">
-            <li>3 cocktail signature</li><li>2 Spritz + Prosecco</li><li>Ingredienti freschi</li><li>Bartender + mobile bar</li><li>Ghiaccio e bicchieri</li>
-          </ul>
-          <a class="btn" href="#contact">Lo voglio</a>
+          <ul class="checklist"><li>3 cocktail classici o signature</li><li>2 Spritz + Prosecco</li><li>Ingredienti freschi</li><li>Bartender + carretto bar</li><li>Ghiaccio e bicchieri</li></ul>
+          <a class="btn" href="#contatti" data-pack="Cocktail — da €590">Lo voglio</a>
         </article>
-
-        <article class="price-card">
+        <article class="price-card reveal">
           <div class="price-tag">03 · Experience</div><div class="price-name">Show</div>
           <div class="price">€790 <small>da</small></div>
           <div class="price-desc">Fino a 80 ospiti · fino a 4 ore</div>
-          <ul class="checklist">
-            <li>Cocktail & Spritz Bar</li><li>4 cocktail signature</li><li>Drink personalizzati</li><li>Mobile bar premium</li><li>Flair Show</li>
-          </ul>
-          <a class="btn btn-outline" href="#contact">Voglio lo show</a>
+          <ul class="checklist"><li>Cocktail &amp; Spritz Bar</li><li>4 cocktail + 1 signature</li><li>Shot bar a fine serata</li><li>Carretto premium con luci</li><li>Flair Show</li></ul>
+          <a class="btn" href="#contatti" data-pack="Show — da €790">Voglio lo show</a>
         </article>
       </div>
-      <p class="note">Eventi oltre 80 ospiti? Prepariamo un'offerta personalizzata. Trasferta inclusa/extra in base alla location.</p>
+      <p class="note">Più di 80 ospiti? Prepariamo un'offerta su misura. Trasferta inclusa o extra in base alla location.</p>
     </div>
   </section>
 
-  <section class="section">
-    <div class="container">
-      <div class="kicker">L'atmosfera</div>
-      <h2>Il tuo evento,<br>ma con più ghiaccio.</h2>
-      <div class="gallery">
-        <div class="photo g1">
-          <div class="illustration night">
-            <svg viewBox="0 0 300 340" xmlns="http://www.w3.org/2000/svg">
-              <path d="M20,60 L260,60 L290,120 L-10,120 Z" fill="#f26a21"/>
-              <path d="M-10,120 L60,120 L20,60 Z" fill="#ff8a3d"/>
-              <path d="M120,120 L190,120 L165,60 L130,60 Z" fill="#ff8a3d"/>
-              <rect x="-30" y="140" width="330" height="150" rx="16" fill="#f8f5ef"/>
-              <rect x="0" y="165" width="30" height="60" rx="6" fill="#f26a21"/>
-              <rect x="40" y="150" width="30" height="75" rx="6" fill="#171512"/>
-              <rect x="80" y="170" width="30" height="55" rx="6" fill="#ff8a3d"/>
-              <rect x="120" y="145" width="30" height="80" rx="6" fill="#f26a21"/>
-              <rect x="160" y="165" width="30" height="60" rx="6" fill="#171512"/>
-              <rect x="200" y="155" width="30" height="70" rx="6" fill="#ff8a3d"/>
-              <circle cx="20" cy="300" r="24" fill="#12110f"/><circle cx="20" cy="300" r="8" fill="#efe9dd"/>
-              <circle cx="240" cy="300" r="24" fill="#12110f"/><circle cx="240" cy="300" r="8" fill="#efe9dd"/>
-              <circle cx="260" cy="90" r="16" fill="url(#bulbGlow)"/><circle cx="260" cy="90" r="5" fill="#ffe9a8"/>
-            </svg>
-          </div>
-          <div class="illustration-label">Il carretto</div>
-        </div>
-        <div class="photo">
-          <div class="illustration cream">
-            <svg viewBox="0 0 260 260" xmlns="http://www.w3.org/2000/svg">
-              <rect x="30" y="90" width="200" height="140" rx="20" fill="#efe9dd"/>
-              <circle cx="70" cy="120" r="14" fill="#fff"/><circle cx="105" cy="110" r="16" fill="#fff"/><circle cx="140" cy="125" r="13" fill="#fff"/><circle cx="175" cy="112" r="15" fill="#fff"/><circle cx="200" cy="128" r="12" fill="#fff"/>
-              <circle cx="88" cy="145" r="14" fill="#fff"/><circle cx="120" cy="150" r="15" fill="#fff"/><circle cx="155" cy="145" r="13" fill="#fff"/><circle cx="185" cy="150" r="14" fill="#fff"/>
-              <circle cx="60" cy="55" r="26" fill="#f26a21"/><circle cx="120" cy="45" r="22" fill="#ff8a3d"/><circle cx="175" cy="55" r="24" fill="#f26a21"/>
-              <path d="M60,29 l6,-14 M120,23 l6,-13 M175,31 l6,-14" stroke="#4a7a3a" stroke-width="4" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <div class="illustration-label">Ghiaccio &amp; agrumi</div>
-        </div>
-        <div class="photo">
-          <div class="illustration night">
-            <svg viewBox="0 0 260 260" xmlns="http://www.w3.org/2000/svg">
-              <path d="M10,60 Q65,110 120,60 T230,60" stroke="#5b4128" stroke-width="2" fill="none"/>
-              <circle cx="65" cy="88" r="14" fill="url(#bulbGlow)"/><circle cx="65" cy="88" r="4" fill="#ffe9a8"/>
-              <circle cx="120" cy="60" r="14" fill="url(#bulbGlow)"/><circle cx="120" cy="60" r="4" fill="#ffe9a8"/>
-              <circle cx="175" cy="88" r="14" fill="url(#bulbGlow)"/><circle cx="175" cy="88" r="4" fill="#ffe9a8"/>
-              <rect x="20" y="160" width="220" height="14" fill="#3a2c21"/>
-              <path d="M60,160 L60,120 L48,110 M60,120 L72,110" stroke="#efe9dd" stroke-width="4" fill="none" stroke-linecap="round"/>
-              <path d="M120,160 L120,130 Q120,115 135,115 Q150,115 150,130 L150,160" stroke="#efe9dd" stroke-width="4" fill="none"/>
-              <path d="M190,160 L190,110 L172,110 L172,120 L190,120" stroke="#efe9dd" stroke-width="4" fill="none" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <div class="illustration-label">Luci sopra il tavolo</div>
-        </div>
-        <div class="photo g4">
-          <div class="illustration cream">
-            <svg viewBox="0 0 620 260" xmlns="http://www.w3.org/2000/svg">
-              <path d="M60,60 L120,60 L108,110 L72,110 Z" fill="#f26a21"/><rect x="88" y="110" width="4" height="60" fill="#171512"/><ellipse cx="90" cy="176" rx="26" ry="8" fill="#171512"/>
-              <path d="M220,70 Q220,130 260,130 Q300,130 300,70 Z" fill="#ff8a3d"/><rect x="256" y="130" width="8" height="55" fill="#171512"/><ellipse cx="260" cy="190" rx="30" ry="8" fill="#171512"/>
-              <rect x="380" y="70" width="60" height="110" rx="8" fill="#171512"/><rect x="386" y="76" width="48" height="55" fill="#f26a21"/>
-              <path d="M520,80 L560,80 L570,190 L510,190 Z" fill="#ff8a3d"/><rect x="536" y="80" width="4" height="-10" fill="#171512"/>
-              <circle cx="90" cy="70" r="10" fill="#ffd23f"/><circle cx="260" cy="80" r="10" fill="#e8492f"/><circle cx="408" cy="65" r="10" fill="#4a7a3a"/><circle cx="540" cy="70" r="10" fill="#ffd23f"/>
-            </svg>
-          </div>
-          <div class="illustration-label">La drink list</div>
-        </div>
+  <section class="section" id="flair">
+    <div class="container flair">
+      <div class="flair-art reveal" aria-hidden="true">
+        <svg viewBox="0 0 400 500">
+          <path d="M268,118 Q338,150 308,222" stroke="#ff8a3d" stroke-width="4" fill="none" stroke-linecap="round" opacity=".85"/>
+          <path d="M284,102 Q358,140 328,216" stroke="#ffc46b" stroke-width="3" fill="none" stroke-linecap="round" opacity=".5"/>
+          <path d="M110,190 Q80,150 100,110" stroke="#ffc46b" stroke-width="3" fill="none" stroke-linecap="round" opacity=".45" stroke-dasharray="2 10"/>
+          <path d="M170,470 C150,400 155,340 175,300 C160,280 155,250 175,225 C185,210 205,205 210,220 C230,215 245,235 235,255 C255,270 260,300 240,320 C255,360 250,420 235,470 Z" fill="#0d0907"/>
+          <path d="M225,240 Q265,215 268,175" stroke="#0d0907" stroke-width="16" stroke-linecap="round" fill="none"/>
+          <g transform="translate(262,104) rotate(35)"><rect x="-10" y="-32" width="20" height="58" rx="6" fill="#f26a21"/><rect x="-5" y="-46" width="10" height="16" rx="2" fill="#3b2719"/></g>
+          <path d="M150,330 Q130,320 132,300" stroke="#0d0907" stroke-width="14" stroke-linecap="round" fill="none"/>
+          <path d="M116,262 L148,262 L141,314 L123,314 Z" fill="#d9d2c6"/><rect x="114" y="254" width="36" height="10" rx="3" fill="#bfb7aa"/>
+          <circle cx="105" cy="100" r="9" fill="#ffc46b" opacity=".9"/>
+          <rect x="0" y="468" width="400" height="14" fill="#f26a21"/>
+        </svg>
       </div>
-      <p class="source-note">Illustrazioni originali create per il prototipo, al posto di fotografie. Quando avrai foto reali degli eventi, le sostituiremo mantenendo la stessa impaginazione.</p>
-    </div>
-  </section>
-
-  <section class="section" id="events">
-    <div class="container">
-      <div class="kicker">Cosa possiamo servire?</div>
-      <h2>Dal primo brindisi<br>all'ultimo cocktail.</h2>
-      <div class="formats">
-        <article class="format"><h3>🍊 Spritz</h3><p>Aperol · Hugo · Limoncello · Campari · Select</p><strong>Fresco, italiano, impossibile da ignorare.</strong></article>
-        <article class="format"><h3>🍸 Classici</h3><p>Mojito · Margarita · Moscow Mule · Paloma · Negroni</p><strong>Il cocktail bar, fatto come si deve.</strong></article>
-        <article class="format"><h3>✨ Signature</h3><p>Drink creati appositamente per il tuo evento, con ingredienti e presentazione personalizzati.</p><strong>Il tuo cocktail. Il tuo nome. La tua storia.</strong></article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section dark">
-    <div class="container showcase">
-      <div class="showcase-photo">
-        <div class="illustration night">
-          <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="200" cy="250" r="220" fill="url(#heroGlow)"/>
-            <!-- motion arcs -->
-            <path d="M260,120 Q330,150 300,220" stroke="#ff8a3d" stroke-width="4" fill="none" stroke-linecap="round" opacity=".8"/>
-            <path d="M275,105 Q350,140 320,215" stroke="#ffd166" stroke-width="3" fill="none" stroke-linecap="round" opacity=".5"/>
-            <!-- bartender silhouette, leaning back mid-flair -->
-            <path d="M170,470 C150,400 155,340 175,300 C160,280 155,250 175,225 C185,210 205,205 210,220 C230,215 245,235 235,255 C255,270 260,300 240,320 C255,360 250,420 235,470 Z" fill="#171512"/>
-            <!-- raised arm -->
-            <path d="M225,240 Q265,215 268,175" stroke="#171512" stroke-width="16" stroke-linecap="round" fill="none"/>
-            <!-- bottle in the air -->
-            <g transform="translate(255,110) rotate(35)">
-              <rect x="-9" y="-30" width="18" height="55" rx="6" fill="#f26a21"/>
-              <rect x="-5" y="-42" width="10" height="16" fill="#3a2c21"/>
-            </g>
-            <!-- shaker in lower hand -->
-            <path d="M150,330 Q130,320 132,300" stroke="#171512" stroke-width="14" stroke-linecap="round" fill="none"/>
-            <path d="M118,270 L146,270 L140,315 L124,315 Z" fill="#efe9dd"/>
-            <!-- bar counter -->
-            <rect x="0" y="470" width="400" height="12" fill="#f26a21"/>
-          </svg>
-        </div>
-      </div>
-      <div class="showcase-copy">
+      <div class="reveal">
         <div class="kicker">Quando il bartender diventa lo show</div>
-        <h2>Non tutto deve essere tranquillo.</h2>
+        <h2>Non tutto deve essere <em>tranquillo.</em></h2>
         <div class="quote">A volte bisogna alzare lo shaker.</div>
-        <p class="lead">Flair bartending, bottiglie in movimento e cocktail preparati davanti ai tuoi ospiti. Un piccolo spettacolo nel cuore della festa.</p>
-        <a class="btn" href="#contact">Voglio il Flair Show</a>
+        <p class="lead">Flair bartending, bottiglie in movimento e cocktail preparati davanti ai tuoi ospiti. Un piccolo spettacolo nel cuore della festa, perfetto per il momento del taglio torta o per aprire la pista.</p>
+        <p style="margin-top:30px"><a class="btn" href="#contatti" data-pack="Show — da €790">Voglio il Flair Show</a></p>
       </div>
     </div>
   </section>
 
-  <section class="section">
+  <section class="section light">
     <div class="container">
-      <div class="kicker">Semplice.</div>
-      <h2>Tu inviti gli ospiti.<br>Noi pensiamo al resto.</h2>
+      <div class="reveal"><div class="kicker">Semplice</div><h2>Tu inviti gli ospiti.<br><em>Noi pensiamo al resto.</em></h2></div>
       <div class="steps">
-        <article class="step"><div class="step-num">01</div><h3>Ci racconti</h3><p>Data, location, numero di ospiti e tipo di festa.</p></article>
-        <article class="step"><div class="step-num">02</div><h3>Creiamo</h3><p>Scegliamo insieme cocktail, Spritz, durata e stile del bar.</p></article>
-        <article class="step"><div class="step-num">03</div><h3>Arriviamo</h3><p>Portiamo bar, attrezzatura, ghiaccio, bicchieri e tutto il necessario.</p></article>
-        <article class="step"><div class="step-num">04</div><h3>Si parte.</h3><p>Tu festeggi. Noi shakeriamo.</p></article>
+        <article class="step reveal"><div class="step-num">01</div><h3>Ci racconti</h3><p>Data, location, numero di ospiti e tipo di festa.</p></article>
+        <article class="step reveal"><div class="step-num">02</div><h3>Creiamo</h3><p>Scegliamo insieme drink list, durata e stile del bar.</p></article>
+        <article class="step reveal"><div class="step-num">03</div><h3>Arriviamo</h3><p>Carretto, attrezzatura, ghiaccio e bicchieri: portiamo tutto noi.</p></article>
+        <article class="step reveal"><div class="step-num">04</div><h3>Si parte</h3><p>Tu festeggi. Noi shakeriamo.</p></article>
       </div>
     </div>
   </section>
 
   <section class="section puglia">
     <div class="container puglia-grid">
-      <div class="puglia-photo">
-        <div class="illustration cream" style="background:linear-gradient(180deg,#efe9dd 0%,#e2d6bd 100%)">
-          <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
-            <path d="M40,500 L40,220 Q40,150 120,150 Q200,150 200,220 L200,500 Z" fill="#f8f5ef" opacity=".7"/>
-            <path d="M200,500 L200,220 Q200,150 280,150 Q360,150 360,220 L360,500 Z" fill="#f8f5ef" opacity=".5"/>
-            <path d="M10,60 Q120,110 230,60 T450,60" stroke="#a68a63" stroke-width="2" fill="none"/>
-            <circle cx="120" cy="86" r="12" fill="url(#bulbGlow)"/><circle cx="120" cy="86" r="4" fill="#ffe9a8"/>
-            <circle cx="230" cy="60" r="12" fill="url(#bulbGlow)"/><circle cx="230" cy="60" r="4" fill="#ffe9a8"/>
-            <circle cx="340" cy="86" r="12" fill="url(#bulbGlow)"/><circle cx="340" cy="86" r="4" fill="#ffe9a8"/>
-            <g transform="translate(150,320) scale(.85)">
-              <path d="M20,60 L280,60 L320,120 L-20,120 Z" fill="#f26a21"/>
-              <rect x="-40" y="140" width="380" height="140" rx="16" fill="#171512"/>
-              <circle cx="0" cy="290" r="24" fill="#171512"/><circle cx="260" cy="290" r="24" fill="#171512"/>
-            </g>
-            <ellipse cx="240" cy="470" rx="170" ry="16" fill="#171512" opacity=".12"/>
-          </svg>
-        </div>
+      <div class="puglia-art reveal" aria-hidden="true">
+        <svg viewBox="0 0 500 500" preserveAspectRatio="xMidYMid slice">
+          <circle cx="250" cy="240" r="90" fill="#ffd08a" opacity=".9"/>
+          <rect x="0" y="240" width="500" height="260" fill="#2b1d13"/>
+          <g fill="#ffd08a" opacity=".25"><rect x="80" y="262" width="340" height="3"/><rect x="140" y="282" width="220" height="3"/><rect x="190" y="302" width="120" height="3"/></g>
+          <path d="M0,240 L0,190 L40,190 L40,170 L70,170 L70,200 L110,200 L110,160 L130,150 L150,160 L150,210 L0,210Z" fill="#1b1410"/>
+          <path d="M360,240 L360,200 L390,200 L390,175 L420,175 L420,195 L460,195 L460,165 L500,165 L500,240Z" fill="#1b1410"/>
+          <path d="M-10,60 Q120,130 250,60 T510,60" stroke="#3b2719" stroke-width="2" fill="none"/>
+          <circle cx="120" cy="95" r="14" fill="url(#bulb)"/><circle cx="250" cy="60" r="14" fill="url(#bulb)"/><circle cx="380" cy="95" r="14" fill="url(#bulb)"/>
+          <g transform="translate(150,330)">
+            <path d="M10,0 L190,0 L215,40 L-15,40Z" fill="#f26a21"/>
+            <path d="M-15,40 L35,40 L10,0Z" fill="#ff8a3d"/><path d="M85,40 L135,40 L120,0 L95,0Z" fill="#ff8a3d"/>
+            <rect x="96" y="40" width="8" height="30" fill="#3b2719"/>
+            <rect x="-20" y="70" width="240" height="90" rx="12" fill="#f6efe3"/>
+            <rect x="-20" y="70" width="240" height="12" fill="#ece2d1"/>
+            <rect x="10" y="48" width="12" height="26" rx="4" fill="#f26a21"/><rect x="28" y="40" width="12" height="34" rx="4" fill="#171310"/><rect x="46" y="52" width="12" height="22" rx="4" fill="#ffc46b"/>
+            <rect x="150" y="46" width="12" height="28" rx="4" fill="#171310"/><rect x="168" y="54" width="12" height="20" rx="4" fill="#f26a21"/>
+            <circle cx="20" cy="165" r="16" fill="#171310"/><circle cx="20" cy="165" r="6" fill="#ece2d1"/>
+            <circle cx="180" cy="165" r="16" fill="#171310"/><circle cx="180" cy="165" r="6" fill="#ece2d1"/>
+          </g>
+        </svg>
       </div>
-      <div>
+      <div class="reveal">
         <div class="kicker">Fatto per la Puglia</div>
-        <h2>Dal centro di Bari alle ville sul mare.</h2>
+        <h2>Dal centro di Bari <em>alle ville sul mare.</em></h2>
         <p class="lead">Dalle masserie della Valle d'Itria alle feste private in campagna. Dal tramonto sulla costa alle notti d'estate.</p>
-        <div class="location-list">
-          <div>✓ Bari</div><div>✓ Polignano a Mare</div><div>✓ Monopoli</div><div>✓ Alberobello</div><div>✓ Ostuni</div><div>✓ Fasano</div><div>✓ Conversano</div><div>✓ Trani</div>
+        <div class="places">
+          <span class="place">Bari</span><span class="place">Polignano a Mare</span><span class="place">Monopoli</span><span class="place">Alberobello</span><span class="place">Ostuni</span><span class="place">Fasano</span><span class="place">Conversano</span><span class="place">Trani</span>
         </div>
-        <p><strong>Il tuo evento è la nostra location.</strong></p>
       </div>
     </div>
   </section>
 
-  <section class="section" id="faq">
+  <section class="section light" id="faq">
     <div class="container">
-      <div style="text-align:center"><div class="kicker">FAQ</div><h2>Prima di brindare.</h2></div>
+      <div style="text-align:center" class="reveal"><div class="kicker">FAQ</div><h2>Prima di <em>brindare.</em></h2></div>
       <div class="faq">
         <details><summary>Quanto costa un servizio?</summary><p>I format partono da €390. Il prezzo finale dipende da numero di ospiti, durata, drink list e location.</p></details>
-        <details><summary>Portate voi tutto?</summary><p>Sì. Ci occupiamo del bar, dell'attrezzatura, del ghiaccio, dei bicchieri e del servizio concordato.</p></details>
-        <details><summary>Possiamo scegliere i cocktail?</summary><p>Assolutamente. Puoi scegliere dai nostri format oppure creare una drink list personalizzata.</p></details>
-        <details><summary>Fate anche cocktail analcolici?</summary><p>Sì. Possiamo inserire mocktail e bevande analcoliche nel menu.</p></details>
-        <details><summary>Fate matrimoni?</summary><p>Sì. Welcome drink, aperitivo, cocktail bar durante la festa e after party.</p></details>
-        <details><summary>Vi spostate fuori Bari?</summary><p>Sì. Lavoriamo in tutta la Puglia. Per location più lontane può essere previsto un supplemento di trasferta.</p></details>
-        <details><summary>Possiamo avere il Flair Show?</summary><p>Certo. È disponibile nel format Show oppure come extra.</p></details>
+        <details><summary>Portate voi tutto?</summary><p>Sì. Bar, attrezzatura, ghiaccio, bicchieri e il servizio concordato. Ci serve solo una presa elettrica e un po' di spazio.</p></details>
+        <details><summary>Possiamo scegliere i cocktail?</summary><p>Certo. Puoi partire dalla nostra drink list oppure costruire un menu su misura, anche con un signature drink dedicato.</p></details>
+        <details><summary>Fate anche drink analcolici?</summary><p>Sì. Mocktail, spritz analcolici e soft drink per chi guida, per i bambini o per chi preferisce non bere alcol.</p></details>
+        <details><summary>Fate matrimoni?</summary><p>Sì: welcome drink, aperitivo, cocktail bar durante la festa e after party.</p></details>
+        <details><summary>Vi spostate fuori Bari?</summary><p>Lavoriamo in tutta la Puglia. Per location più lontane può essere previsto un supplemento di trasferta.</p></details>
+        <details><summary>Possiamo avere il Flair Show?</summary><p>È incluso nel format Show oppure si può aggiungere come extra agli altri pacchetti.</p></details>
       </div>
     </div>
   </section>
 
-  <section class="section contact" id="contact">
+  <section class="section contact" id="contatti">
     <div class="container contact-grid">
-      <div>
-        <div class="kicker" style="color:#fff">Hai già una data?</div>
+      <div class="reveal">
+        <div class="kicker">Hai già una data?</div>
         <h2>Raccontaci<br>la tua festa.</h2>
-        <p class="lead">Compila il form. Ti risponderemo con una proposta in base a ospiti, location e tipo di evento.</p>
-        <p style="font-weight:700;font-size:15px;margin-top:30px">Oppure scrivici direttamente su WhatsApp.</p>
-        <a class="btn btn-light" id="directWhatsapp" href="#">🍊 Parliamo della tua festa</a>
+        <p class="lead">Compila il modulo: ti rispondiamo con una proposta su misura in base a ospiti, location e tipo di evento.</p>
+        <p id="waLine" style="display:none;font-weight:700;margin-top:28px">Preferisci scriverci? <a id="waDirect" href="#" style="text-decoration:underline">Apri WhatsApp →</a></p>
       </div>
 
-      <form id="quoteForm">
+      <form id="quoteForm" class="reveal" novalidate>
         <div class="form-row">
-          <div class="field"><label for="date">Data</label><input id="date" name="date" type="date"></div>
-          <div class="field"><label for="guests">Ospiti</label><input id="guests" name="guests" type="number" min="1" placeholder="es. 50"></div>
+          <div class="field"><label for="name">Nome</label><input id="name" name="nome" autocomplete="name" required></div>
+          <div class="field"><label for="phone">Telefono</label><input id="phone" name="telefono" type="tel" autocomplete="tel" required></div>
+        </div>
+        <div class="form-row">
+          <div class="field"><label for="date">Data</label><input id="date" name="data" type="date"></div>
+          <div class="field"><label for="guests">Ospiti</label><input id="guests" name="ospiti" type="number" min="1" placeholder="es. 50"></div>
         </div>
         <div class="field"><label for="location">Location</label><input id="location" name="location" placeholder="Bari, villa, masseria..."></div>
-        <div class="field"><label for="type">Tipo di evento</label>
-          <select id="type" name="type">
-            <option value="">Seleziona</option><option>Matrimonio</option><option>Compleanno</option><option>Villa / Private Party</option><option>Pool Party</option><option>Evento aziendale</option><option>Altro</option>
-          </select>
+        <div class="form-row">
+          <div class="field"><label for="type">Evento</label>
+            <select id="type" name="evento"><option value="">Seleziona</option><option>Matrimonio</option><option>Compleanno</option><option>Villa / Private party</option><option>Pool party</option><option>Evento aziendale</option><option>Altro</option></select>
+          </div>
+          <div class="field"><label for="package">Format</label>
+            <select id="package" name="format"><option value="">Non so ancora</option><option>Spritz — da €390</option><option>Cocktail — da €590</option><option>Show — da €790</option><option>Su misura</option></select>
+          </div>
         </div>
-        <div class="field"><label for="package">Format</label>
-          <select id="package" name="package">
-            <option value="">Non so ancora</option><option>Spritz — da €390</option><option>Cocktail — da €590</option><option>Show — da €790</option><option>Preventivo personalizzato</option>
-          </select>
-        </div>
-        <div class="field"><label for="message">Note</label><textarea id="message" name="message" placeholder="Raccontaci qualcosa in più..."></textarea></div>
+        <div class="field"><label for="message">Note</label><textarea id="message" name="note" placeholder="Drink preferiti, orari, idee..."></textarea></div>
+        <input class="hp" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
         <button class="btn" type="submit" style="width:100%">Invia la richiesta →</button>
-        <div class="form-note">Il pulsante apre WhatsApp con i dati compilati. Sostituisci il numero nel codice prima della pubblicazione.</div>
+        <div class="form-status" id="formStatus" role="status"></div>
+        <div class="form-note">Inviando accetti la <a href="/privacy.html">privacy policy</a>. Rispondiamo entro 24 ore.</div>
       </form>
     </div>
   </section>
 </main>
 
-<div class="garland-wrap">
-  <svg class="garland" viewBox="0 0 1200 90" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M-20,20 Q160,80 340,20 T700,20 T1060,20 T1420,20" stroke="#5b4128" stroke-width="2" fill="none" opacity=".9"/>
-    <circle cx="160" cy="62" r="14" fill="url(#bulbGlow)"/><circle cx="160" cy="62" r="4" fill="#ffe9a8"/>
-    <circle cx="340" cy="20" r="14" fill="url(#bulbGlow)"/><circle cx="340" cy="20" r="4" fill="#ffe9a8"/>
-    <circle cx="520" cy="62" r="14" fill="url(#bulbGlow)"/><circle cx="520" cy="62" r="4" fill="#ffe9a8"/>
-    <circle cx="700" cy="20" r="14" fill="url(#bulbGlow)"/><circle cx="700" cy="20" r="4" fill="#ffe9a8"/>
-    <circle cx="880" cy="62" r="14" fill="url(#bulbGlow)"/><circle cx="880" cy="62" r="4" fill="#ffe9a8"/>
-    <circle cx="1060" cy="20" r="14" fill="url(#bulbGlow)"/><circle cx="1060" cy="20" r="4" fill="#ffe9a8"/>
-  </svg>
-</div>
 <footer>
-  <div class="container footer-inner">
-    <div><div class="logo">SPRITZ BAR</div><div class="footer-small">Il bar che viene alla tua festa.</div></div>
-    <div class="footer-small">Bari · Puglia · Italia</div>
+  <div class="container">
+    <div class="footer-inner">
+      <a href="#top" class="logo"><svg class="logo-mark" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#f26a21"/><path d="M8 9h16l-8 10z" fill="#fff"/><path d="M16 19v6M11.5 25h9" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg><span>Bar Mobile</span></a>
+      <div class="footer-small">Bari · Puglia · © 2026 · <a href="/privacy.html">Privacy policy</a></div>
+    </div>
+    <div class="site-credit"><a href="https://clickbari.it" target="_blank" rel="noopener">Sito realizzato da ClickBari</a></div>
   </div>
 </footer>
 
-<a class="floating" id="floatingWhatsapp" href="#">WhatsApp · Richiedi un preventivo</a>
+<a class="floating" id="waFloat" href="#" target="_blank" rel="noopener">WhatsApp · Preventivo</a>
 
 <script>
-  // ===========================
-  // CONFIGURAZIONE
-  // Inserisci qui il tuo numero WhatsApp in formato internazionale,
-  // senza +, spazi o parentesi.
-  // Esempio: 393331234567
-  // ===========================
-  const WHATSAPP_NUMBER = "39XXXXXXXXXX";
+/* ================= CONFIG ================= */
+// Numero WhatsApp in formato internazionale senza + e spazi (es. 393331234567).
+// Se vuoto, i pulsanti WhatsApp restano nascosti.
+const WHATSAPP_NUMBER = "";
+const FORMSPREE = "https://formspree.io/f/mlgkbbkv";
 
-  function whatsappUrl(text){
-    return "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(text);
+/* ================= GLASS RENDERER ================= */
+// Disegna un bicchiere SVG originale: forma, liquido (gradiente o strati), ghiaccio, guarnizione.
+const GLASSES = {
+  wine:    {vb:"0 0 160 240", body:"M38,28 Q32,104 80,118 Q128,104 122,28 Z", liquid:[48,116], stem:[80,118,80,212], foot:[80,214,30], rim:[38,122,28]},
+  coupe:   {vb:"0 0 160 240", body:"M26,62 Q30,112 80,114 Q130,112 134,62 Z", liquid:[72,114], stem:[80,114,80,212], foot:[80,214,30], rim:[26,134,62]},
+  martini: {vb:"0 0 160 240", body:"M24,46 L80,118 L136,46 Z", liquid:[58,118], stem:[80,118,80,212], foot:[80,214,30], rim:[24,136,46]},
+  highball:{vb:"0 0 160 240", body:"M46,42 L114,42 L110,222 Q110,228 104,228 L56,228 Q50,228 50,222 Z", liquid:[64,222], rim:[46,114,42]},
+  rocks:   {vb:"0 70 160 170", body:"M36,116 L124,116 L119,222 Q119,228 113,228 L47,228 Q41,228 41,222 Z", liquid:[134,222], rim:[36,124,116]},
+  shot:    {vb:"15 80 130 160", body:"M50,120 L110,120 L104,226 L56,226 Z", liquid:[134,208], rim:[50,110,120], thick:true}
+};
+let gid = 0;
+function glassSVG(d){
+  const g = GLASSES[d.glass]; const id = "g" + (++gid);
+  const [lt, lb] = g.liquid;
+  const stops = (d.stops || [[0,d.c1],[1,d.c2]]).map(s => `<stop offset="${s[0]}" stop-color="${s[1]}"/>`).join("");
+  let ice = "";
+  if (d.ice){
+    const xs = d.glass==="rocks" ? [[58,150,0],[90,160,14]] : d.glass==="highball" ? [[56,78,-8],[82,96,10],[60,128,6],[84,160,-6]] : [[58,58,-10],[86,66,12],[70,84,4]];
+    ice = xs.map(([x,y,r]) => `<rect x="${x}" y="${y}" width="24" height="24" rx="5" transform="rotate(${r} ${x+12} ${y+12})" fill="rgba(255,255,255,.22)" stroke="rgba(255,255,255,.45)" stroke-width="1"/>`).join("");
   }
-
-  const defaultText = "Ciao! Vorrei informazioni per il vostro Spritz Bar.\\n\\nData:\\nLocation:\\nOspiti:\\nTipo di evento:";
-  document.getElementById("directWhatsapp").href = whatsappUrl(defaultText);
-  document.getElementById("floatingWhatsapp").href = whatsappUrl(defaultText);
-
-  document.getElementById("quoteForm").addEventListener("submit", function(e){
-    e.preventDefault();
-    const date = document.getElementById("date").value || "Da definire";
-    const guests = document.getElementById("guests").value || "Da definire";
-    const location = document.getElementById("location").value || "Da definire";
-    const type = document.getElementById("type").value || "Da definire";
-    const pack = document.getElementById("package").value || "Da definire";
-    const message = document.getElementById("message").value || "Nessuna nota";
-    const text =
-      "Ciao! Vorrei un preventivo per Spritz Bar.\\n\\n" +
-      "📅 Data: " + date + "\\n" +
-      "📍 Location: " + location + "\\n" +
-      "👥 Ospiti: " + guests + "\\n" +
-      "🎉 Evento: " + type + "\\n" +
-      "🍸 Format: " + pack + "\\n" +
-      "💬 Note: " + message;
-    window.open(whatsappUrl(text), "_blank");
+  let bubbles = "";
+  if (d.bubbles){
+    for (let i=0;i<7;i++){
+      const x = 60 + (i*37)%42, y = lb - 8 - (i*23)%40, r = 1.4 + (i%3)*.6, dur = 2.5 + (i%4)*.7;
+      bubbles += `<circle cx="${x}" cy="${y}" r="${r}" fill="rgba(255,255,255,.75)"><animate attributeName="cy" from="${lb-4}" to="${lt+4}" dur="${dur}s" begin="${(i*.4).toFixed(1)}s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;0" dur="${dur}s" begin="${(i*.4).toFixed(1)}s" repeatCount="indefinite"/></circle>`;
+    }
+  }
+  const stem = g.stem ? `<line x1="${g.stem[0]}" y1="${g.stem[1]}" x2="${g.stem[2]}" y2="${g.stem[3]}" stroke="rgba(255,255,255,.55)" stroke-width="4" stroke-linecap="round"/><ellipse cx="${g.foot[0]}" cy="${g.foot[1]}" rx="${g.foot[2]}" ry="6" fill="rgba(255,255,255,.12)" stroke="rgba(255,255,255,.55)" stroke-width="2"/>` : "";
+  const thick = g.thick ? `<rect x="57" y="208" width="46" height="18" fill="rgba(255,255,255,.18)"/>` : "";
+  const [rx1, rx2, ry] = g.rim;
+  const salt = d.salt ? `<line x1="${rx1+2}" y1="${ry}" x2="${rx2-2}" y2="${ry}" stroke="#fff" stroke-width="5" stroke-dasharray="1.5 2.5" stroke-linecap="round" opacity=".9"/>` : "";
+  return `<svg viewBox="${g.vb}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="${d.name}">
+    <defs>
+      <clipPath id="${id}c"><path d="${g.body}"/></clipPath>
+      <linearGradient id="${id}l" x1="0" y1="0" x2="0" y2="1">${stops}</linearGradient>
+    </defs>
+    ${stem}
+    <g clip-path="url(#${id}c)">
+      <rect x="0" y="${lt}" width="160" height="${lb-lt+20}" fill="url(#${id}l)"/>
+      <rect x="0" y="${lt}" width="160" height="3" fill="rgba(255,255,255,.35)"/>
+      ${ice}${bubbles}
+    </g>
+    ${thick}
+    <path d="${g.body}" fill="rgba(255,255,255,.05)" stroke="rgba(255,255,255,.6)" stroke-width="2.2" stroke-linejoin="round"/>
+    <line x1="${rx1+10}" y1="${ry+12}" x2="${rx1+14}" y2="${Math.min(ry+70,lb-6)}" stroke="rgba(255,255,255,.35)" stroke-width="3" stroke-linecap="round"/>
+    ${salt}
+    ${garnish(d, g)}
+  </svg>`;
+}
+function garnish(d, g){
+  const [rx1, rx2, ry] = g.rim; const x = rx2 - 8, y = ry;
+  const parts = [];
+  (d.garnish || []).forEach(k => {
+    if (k==="orange" || k==="lemon" || k==="lime" || k==="grapefruit"){
+      const c = {orange:["#ff9b3d","#ffd29a"], lemon:["#f5d22e","#fff1a6"], lime:["#7cc243","#d7f0a8"], grapefruit:["#f2715a","#ffc2b0"]}[k];
+      const segs = Array.from({length:8},(_,i)=>{const a=i*Math.PI/4;return `<line x1="${x}" y1="${y}" x2="${(x+15*Math.cos(a)).toFixed(1)}" y2="${(y+15*Math.sin(a)).toFixed(1)}" stroke="${c[0]}" stroke-width="1.2" opacity=".7"/>`}).join("");
+      parts.push(`<g><circle cx="${x}" cy="${y}" r="19" fill="${c[0]}"/><circle cx="${x}" cy="${y}" r="16" fill="${c[1]}"/>${segs}<circle cx="${x}" cy="${y}" r="2" fill="${c[0]}"/></g>`);
+    }
+    if (k==="mint"){
+      const mx = (rx1+rx2)/2 - 12, my = y - 2;
+      parts.push(`<g><path d="M${mx},${my} q-14,-22 4,-32 q10,18 -4,32z" fill="#4fae5a"/><path d="M${mx+6},${my} q4,-26 22,-26 q-2,20 -22,26z" fill="#3e9649"/><path d="M${mx},${my} l2,-24" stroke="#2f7a39" stroke-width="1.2"/></g>`);
+    }
+    if (k==="cherry"){
+      const cx = (rx1+rx2)/2 + 6;
+      parts.push(`<g><path d="M${cx},${y-14} q6,-26 22,-30" stroke="#5a3a1e" stroke-width="2" fill="none"/><circle cx="${cx}" cy="${y-8}" r="10" fill="#c8102e"/><circle cx="${cx-3}" cy="${y-11}" r="3" fill="#ff8a9a"/></g>`);
+    }
+    if (k==="beans"){
+      const cx = (rx1+rx2)/2;
+      parts.push([-14,0,14].map(o=>`<g transform="translate(${cx+o} ${y+14}) rotate(${o})"><ellipse rx="6" ry="8" fill="#3b2213"/><path d="M0,-7 q3,7 0,14" stroke="#6b4428" stroke-width="1.4" fill="none"/></g>`).join(""));
+    }
+    if (k==="cucumber"){
+      parts.push(`<g><circle cx="${x}" cy="${y}" r="17" fill="#3e8a3a"/><circle cx="${x}" cy="${y}" r="14" fill="#cfeaa8"/><circle cx="${x}" cy="${y}" r="6" fill="#e9f7d3"/></g>`);
+    }
+    if (k==="straw"){
+      parts.push(`<line x1="${rx1+26}" y1="${y+60}" x2="${rx1+8}" y2="${y-40}" stroke="#f6efe3" stroke-width="5" stroke-linecap="round"/><line x1="${rx1+26}" y1="${y+60}" x2="${rx1+8}" y2="${y-40}" stroke="#f26a21" stroke-width="5" stroke-dasharray="6 6" stroke-linecap="round"/>`);
+    }
+    if (k==="berries"){
+      const cx = (rx1+rx2)/2;
+      parts.push(`<g><circle cx="${cx-8}" cy="${y-6}" r="7" fill="#c2185b"/><circle cx="${cx+5}" cy="${y-9}" r="7" fill="#e91e63"/><circle cx="${cx}" cy="${y-18}" r="6" fill="#ad1457"/></g>`);
+    }
+    if (k==="peel"){
+      parts.push(`<path d="M${rx2-24},${y-4} q16,-18 30,-8 q-14,4 -30,8z" fill="#ff8a3d" stroke="#e05a10" stroke-width="1"/>`);
+    }
   });
+  return parts.join("");
+}
+
+/* ================= DRINKS ================= */
+const DRINKS = [
+  // SPRITZ
+  {cat:"spritz", name:"Aperol Spritz", tag:"L'aperitivo italiano per eccellenza. Amaro, agrumato, frizzante.", glass:"wine", c1:"#ff8a2a", c2:"#e8541a", ice:true, bubbles:true, garnish:["orange"], glow:"#f26a21",
+   ingr:[["Prosecco","9 cl"],["Aperol","6 cl"],["Soda","3 cl"]], method:"Nel calice pieno di ghiaccio versa prima il Prosecco, poi l'Aperol e completa con la soda. Mescola appena e guarnisci con mezza fetta d'arancia.", chips:["Calice","Facile","11% vol"]},
+  {cat:"spritz", name:"Hugo", tag:"Fiori di sambuco, menta e lime. Il più fresco della famiglia.", glass:"wine", c1:"#eef7c8", c2:"#c9e27a", ice:true, bubbles:true, garnish:["lime","mint"], glow:"#b6d65a",
+   ingr:[["Prosecco","9 cl"],["Sciroppo di sambuco","2 cl"],["Soda","3 cl"],["Menta e lime","q.b."]], method:"Pesta delicatamente la menta con lo sciroppo, aggiungi ghiaccio, Prosecco e soda. Guarnisci con una rondella di lime.", chips:["Calice","Facile","8% vol"]},
+  {cat:"spritz", name:"Limoncello Spritz", tag:"Il sole della costiera nel bicchiere. Dolce, agrumato, solare.", glass:"wine", c1:"#fff2a0", c2:"#f2cf2e", ice:true, bubbles:true, garnish:["lemon","mint"], glow:"#f2cf2e",
+   ingr:[["Prosecco","9 cl"],["Limoncello","6 cl"],["Soda","3 cl"]], method:"Ghiaccio nel calice, Prosecco, limoncello e soda. Una girata leggera e una fetta di limone.", chips:["Calice","Facile","12% vol"]},
+  {cat:"spritz", name:"Campari Spritz", tag:"Più deciso e amaro dell'Aperol. Per chi ama il bitter.", glass:"wine", c1:"#e8323c", c2:"#a3121c", ice:true, bubbles:true, garnish:["orange"], glow:"#d1202a",
+   ingr:[["Prosecco","9 cl"],["Campari","6 cl"],["Soda","3 cl"]], method:"Stessa preparazione dello Spritz classico, con Campari al posto dell'Aperol. Guarnisci con arancia.", chips:["Calice","Facile","13% vol"]},
+
+  // CLASSICI
+  {cat:"classici", name:"Negroni", tag:"Gin, bitter e vermouth in parti uguali. Un'icona nata a Firenze.", glass:"rocks", c1:"#c42a1e", c2:"#6e0f0c", ice:true, garnish:["peel"], glow:"#b3241a",
+   ingr:[["Gin","3 cl"],["Bitter rosso","3 cl"],["Vermouth rosso","3 cl"]], method:"Versa tutto in un tumbler basso con un grosso cubo di ghiaccio, mescola 20 secondi e profuma con una scorza d'arancia.", chips:["Tumbler","Medio","24% vol"]},
+  {cat:"classici", name:"Mojito", tag:"Rum, lime e menta fresca. L'estate cubana in un bicchiere alto.", glass:"highball", c1:"#effad8", c2:"#bfe39a", ice:true, bubbles:true, garnish:["mint","lime","straw"], glow:"#9fd36a",
+   ingr:[["Rum bianco","5 cl"],["Lime fresco","½ frutto"],["Zucchero di canna","2 cucchiaini"],["Menta","8 foglie"],["Soda","top"]], method:"Pesta lime e zucchero, aggiungi la menta senza schiacciarla troppo, riempi di ghiaccio tritato, versa il rum e completa con soda.", chips:["Highball","Medio","10% vol"]},
+  {cat:"classici", name:"Espresso Martini", tag:"Vodka e caffè espresso. Il drink che sveglia la festa.", glass:"martini", stops:[[0,"#d9b48a"],[.12,"#c8996a"],[.16,"#2a160c"],[1,"#140a05"]], garnish:["beans"], glow:"#8a5a32",
+   ingr:[["Vodka","4 cl"],["Liquore al caffè","2 cl"],["Espresso","3 cl"],["Sciroppo di zucchero","1 cl"]], method:"Shakera forte con molto ghiaccio per creare la crema, filtra nella coppa fredda e decora con tre chicchi di caffè.", chips:["Coppa martini","Medio","16% vol"]},
+  {cat:"classici", name:"Margarita", tag:"Tequila, lime e triple sec, con il bordo di sale.", glass:"coupe", c1:"#f3f6c4", c2:"#d6e57a", salt:true, garnish:["lime"], glow:"#c9dc5a",
+   ingr:[["Tequila","5 cl"],["Triple sec","2 cl"],["Succo di lime","1,5 cl"],["Sale","bordo"]], method:"Bagna il bordo con lime e passalo nel sale. Shakera gli ingredienti con ghiaccio e filtra nella coppa.", chips:["Coppa","Medio","22% vol"]},
+  {cat:"classici", name:"Paloma", tag:"Tequila e pompelmo rosa. Il drink più bevuto in Messico.", glass:"highball", c1:"#ffd3c8", c2:"#f48f7a", ice:true, bubbles:true, salt:true, garnish:["grapefruit","straw"], glow:"#f2715a",
+   ingr:[["Tequila","5 cl"],["Succo di lime","1,5 cl"],["Soda al pompelmo","12 cl"],["Sale","bordo"]], method:"Bordo di sale, ghiaccio nel bicchiere alto, tequila e lime, completa con soda al pompelmo.", chips:["Highball","Facile","10% vol"]},
+  {cat:"classici", name:"Moscow Mule", tag:"Vodka, ginger beer e lime. Piccante, fresco, frizzante.", glass:"highball", c1:"#fbe9bd", c2:"#e2bc6a", ice:true, bubbles:true, garnish:["lime","mint"], glow:"#d9a548",
+   ingr:[["Vodka","5 cl"],["Succo di lime","1,5 cl"],["Ginger beer","12 cl"]], method:"Ghiaccio, vodka e lime, completa con ginger beer ben fredda. Rondella di lime e un ciuffo di menta.", chips:["Highball / mug","Facile","10% vol"]},
+
+  // SHOT
+  {cat:"shot", name:"Blue Kamikaze", tag:"Vodka, curaçao blu e lime. Colore elettrico, gusto agrumato.", glass:"shot", c1:"#5fd3ff", c2:"#1592d8", garnish:["lime"], glow:"#1fa8ee",
+   ingr:[["Vodka","2 cl"],["Blue curaçao","1 cl"],["Succo di lime","1 cl"]], method:"Shakera con ghiaccio e filtra nel bicchierino. Si beve in un sorso.", chips:["Shot","Facile","25% vol"]},
+  {cat:"shot", name:"B-52", tag:"Tre strati: caffè, crema irlandese e arancia.", glass:"shot", stops:[[0,"#e98a2c"],[.33,"#e98a2c"],[.34,"#e9d3b0"],[.66,"#e9d3b0"],[.67,"#3a1d0e"],[1,"#2a1308"]], glow:"#c97a34",
+   ingr:[["Liquore al caffè","1,5 cl"],["Crema di whisky","1,5 cl"],["Liquore all'arancia","1,5 cl"]], method:"Versa i liquori in quest'ordine facendoli scivolare sul dorso di un cucchiaino, per tenere gli strati separati.", chips:["Shot","Difficile","26% vol"]},
+  {cat:"shot", name:"Lemon Drop", tag:"Vodka e limone con il bordo di zucchero. Dolce e aspro.", glass:"shot", c1:"#fff6b8", c2:"#f2d43a", salt:true, garnish:["lemon"], glow:"#f2d43a",
+   ingr:[["Vodka","3 cl"],["Succo di limone","1,5 cl"],["Sciroppo di zucchero","1 cl"],["Zucchero","bordo"]], method:"Bordo di zucchero, shakera con ghiaccio e filtra.", chips:["Shot","Facile","20% vol"]},
+  {cat:"shot", name:"Sunrise", tag:"Il tramonto in miniatura: arancia e granatina.", glass:"shot", stops:[[0,"#ffb43d"],[.55,"#ff8a1f"],[1,"#d3102d"]], garnish:["orange"], glow:"#ff7a2a",
+   ingr:[["Tequila","2 cl"],["Succo d'arancia","2 cl"],["Granatina","0,5 cl"]], method:"Tequila e arancia nel bicchierino, poi la granatina lasciata cadere sul fondo per l'effetto alba.", chips:["Shot","Facile","18% vol"]},
+
+  // ANALCOLICI
+  {cat:"analcolici", name:"Virgin Mojito", tag:"Tutta la freschezza del Mojito, senza alcol.", glass:"highball", c1:"#f4fbe6", c2:"#cfeaa8", ice:true, bubbles:true, garnish:["mint","lime","straw"], glow:"#9fd36a",
+   ingr:[["Lime fresco","½ frutto"],["Zucchero di canna","2 cucchiaini"],["Menta","8 foglie"],["Soda","top"]], method:"Come il Mojito classico, senza rum e con un po' più di soda.", chips:["Highball","Facile","0% vol"]},
+  {cat:"analcolici", name:"Spritz 0.0", tag:"Il rito dello Spritz per chi guida: bitter analcolico e tonica.", glass:"wine", c1:"#ff9a4a", c2:"#ef6a28", ice:true, bubbles:true, garnish:["orange"], glow:"#f26a21",
+   ingr:[["Bitter analcolico","6 cl"],["Acqua tonica","9 cl"],["Soda","3 cl"]], method:"Ghiaccio nel calice, bitter analcolico, tonica e soda. Fetta d'arancia.", chips:["Calice","Facile","0% vol"]},
+  {cat:"analcolici", name:"Pink Lemonade", tag:"Limonata fatta al momento con frutti rossi.", glass:"highball", c1:"#ffd6e2", c2:"#f27a9e", ice:true, bubbles:true, garnish:["berries","lemon","straw"], glow:"#f27a9e",
+   ingr:[["Succo di limone","3 cl"],["Sciroppo di frutti rossi","2 cl"],["Acqua frizzante","12 cl"]], method:"Ghiaccio, limone e sciroppo, completa con acqua frizzante e frutti di bosco.", chips:["Highball","Facile","0% vol"]},
+  {cat:"analcolici", name:"Cucumber Cooler", tag:"Cetriolo, lime e tonica. Il più rinfrescante della serata.", glass:"wine", c1:"#effbe3", c2:"#bfe3a0", ice:true, bubbles:true, garnish:["cucumber","mint"], glow:"#9fd36a",
+   ingr:[["Cetriolo","3 fette"],["Succo di lime","1,5 cl"],["Sciroppo di zucchero","1 cl"],["Acqua tonica","12 cl"]], method:"Pesta il cetriolo con lime e sciroppo, aggiungi ghiaccio e tonica. Fetta di cetriolo sul bordo.", chips:["Calice","Facile","0% vol"]}
+];
+
+function card(d){
+  const el = document.createElement("article");
+  el.className = "drink";
+  el.style.setProperty("--glow", d.glow);
+  el.innerHTML = `
+    <div class="drink-inner">
+      <div class="face front">
+        <div class="front-art">${glassSVG(d)}</div>
+        <div class="front-body">
+          <div class="drink-cat">${d.cat}</div>
+          <h3 class="drink-name">${d.name}</h3>
+          <p class="drink-tag">${d.tag}</p>
+          <button class="flip-btn" type="button" aria-expanded="false">Vedi la ricetta →</button>
+        </div>
+      </div>
+      <div class="face back" aria-hidden="true">
+        <div class="drink-cat" style="color:var(--aperol)">Ricetta</div>
+        <h3 class="drink-name">${d.name}</h3>
+        <h4>Ingredienti</h4>
+        <ul class="ingr">${d.ingr.map(i=>`<li><span>${i[0]}</span><b>${i[1]}</b></li>`).join("")}</ul>
+        <h4>Preparazione</h4>
+        <p class="method">${d.method}</p>
+        <div class="meta-chips">${d.chips.map(c=>`<span class="chip">${c}</span>`).join("")}</div>
+        <button class="flip-btn" type="button">← Torna al drink</button>
+      </div>
+    </div>`;
+  const front = el.querySelector(".front"), back = el.querySelector(".back");
+  el.querySelectorAll(".flip-btn").forEach(b => b.addEventListener("click", e => {
+    e.stopPropagation();
+    const on = el.classList.toggle("flipped");
+    front.setAttribute("aria-hidden", on); back.setAttribute("aria-hidden", !on);
+    el.querySelector(".front .flip-btn").setAttribute("aria-expanded", on);
+  }));
+  el.addEventListener("click", () => el.querySelector(el.classList.contains("flipped") ? ".back .flip-btn" : ".front .flip-btn").click());
+  return el;
+}
+
+const grid = document.getElementById("drinks");
+function show(cat){
+  grid.innerHTML = "";
+  DRINKS.filter(d => d.cat === cat).forEach(d => grid.appendChild(card(d)));
+}
+document.querySelectorAll(".tab").forEach(t => t.addEventListener("click", () => {
+  document.querySelectorAll(".tab").forEach(x => x.setAttribute("aria-selected", x === t));
+  show(t.dataset.cat);
+}));
+show("spritz");
+
+// Hero + signature glasses
+const heroPick = ["Hugo","Aperol Spritz","Negroni"].map(n => DRINKS.find(d => d.name === n));
+document.getElementById("heroGlasses").innerHTML = heroPick.map(d => `<div class="g">${glassSVG(d)}</div>`).join("");
+document.getElementById("sigArt").innerHTML = glassSVG({name:"Tramonto a Polignano", glass:"wine", stops:[[0,"#ffc46b"],[.5,"#ff7a2a"],[1,"#d3102d"]], ice:true, bubbles:true, garnish:["orange","mint"]});
+
+// String lights
+(function(){
+  const g = document.getElementById("bulbs"); let s = "";
+  const pts = [[180,92],[380,40],[580,92],[780,40],[980,92],[1180,40],[1380,92]];
+  pts.forEach(([x,y]) => { s += `<g class="bulb"><circle cx="${x}" cy="${y+14}" r="30" fill="url(#bulb)"/><rect x="${x-3}" y="${y}" width="6" height="7" fill="#3b2719"/><ellipse cx="${x}" cy="${y+14}" rx="6" ry="8" fill="#fff1c9"/></g>`; });
+  g.innerHTML = s;
+})();
+
+/* ================= NAV + REVEAL ================= */
+const nav = document.getElementById("nav");
+addEventListener("scroll", () => nav.classList.toggle("scrolled", scrollY > 40), {passive:true});
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); } }), {threshold:.12});
+document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+
+// Preselect package from buttons
+document.querySelectorAll("[data-pack]").forEach(b => b.addEventListener("click", () => { document.getElementById("package").value = b.dataset.pack; }));
+
+/* ================= WHATSAPP ================= */
+if (WHATSAPP_NUMBER){
+  const url = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent("Ciao! Vorrei informazioni per il Bar Mobile.\n\nData:\nLocation:\nOspiti:\nTipo di evento:");
+  const f = document.getElementById("waFloat"); f.href = url; f.style.display = "block";
+  document.getElementById("waDirect").href = url; document.getElementById("waLine").style.display = "block";
+}
+
+/* ================= FORM (Formspree) ================= */
+const form = document.getElementById("quoteForm"), status = document.getElementById("formStatus");
+form.addEventListener("submit", async e => {
+  e.preventDefault();
+  status.className = "form-status";
+  if (!form.nome.value.trim() || !form.telefono.value.trim()){
+    status.textContent = "Inserisci nome e telefono, così possiamo ricontattarti.";
+    status.className = "form-status err"; return;
+  }
+  const btn = form.querySelector("button[type=submit]"); btn.disabled = true; btn.textContent = "Invio in corso…";
+  const data = new FormData(form); data.append("_subject", "Nuova richiesta — Bar Mobile");
+  try{
+    const r = await fetch(FORMSPREE, {method:"POST", body:data, headers:{Accept:"application/json"}});
+    if (!r.ok) throw new Error();
+    form.reset(); status.textContent = "Richiesta inviata! Ti ricontattiamo entro 24 ore.";
+    status.className = "form-status ok";
+  }catch(err){
+    status.textContent = "Qualcosa non ha funzionato. Riprova tra poco.";
+    status.className = "form-status err";
+  }finally{ btn.disabled = false; btn.textContent = "Invia la richiesta →"; }
+});
 </script>
 </body>
 </html>
